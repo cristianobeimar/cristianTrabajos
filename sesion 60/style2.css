@@ -1,3 +1,6 @@
+body{
+    background-color: #141414;
+}
 .bg-gradient{
     background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
 }
@@ -10,21 +13,28 @@
 }
 .header nav{
     display: flex;
-    align-items: center;
+   
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    
 }
 .header img{
+    display: flex;
+    justify-content: end;
     width: 100px;
+    margin-right: 5px;
+    
 }
 .header nav a{
     color: #fff;
     text-decoration: none;
-    margin-right: 20px;
+    margin-right:40px;
+   
 }
-.header button{
-    background-color: #d81f26;
-    color: #fff;
-    border:none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 10px;
+.peliculas p {
+color: #fff;
+font-family:Arial, Helvetica, sans-serif;
+}
+img{
+    max-width: 200px;
+    max-height: 200px;
 }
