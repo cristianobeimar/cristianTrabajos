@@ -1,0 +1,44 @@
+body{
+    margin: 0px;
+}
+
+*{
+    margin: 0
+}
+
+header{
+    background-color: #000B4B;
+    color: #fff;
+}
+
+.nav_button{
+    background-color: rgb(134, 4, 189);
+    border-radius: 12px;
+    padding: 8px;
+    margin-bottom: 4px;
+    cursor: pointer;
+}
+
+#login_button{
+    font-size: 2rem;
+}
+
+#login_button:hover{
+    background-color: rgba(133, 4, 189, 0.797);
+}
+
+.container {
+    /* width: 700px;  */
+    display: flex;
+    justify-content: space-evenly;
+   
+}
+
+li{
+    list-style: none;
+}
+
+html{
+    font-size: 16px;
+   
+}

@@ -1,0 +1,15 @@
+{
+    "nombre": "Yineth Karina Rivera Guerrero",
+    "edad": 21,
+    "email": "yinethriv03@gmail.com",
+    "lugares frecuentes": [
+        {
+            "tipo": "pueblo",
+            "dirección": "Rosas"
+        },
+        {
+            "tipo": "oficina",
+            "dirección": "edificio navarro ayte"
+        }
+    ]
+}

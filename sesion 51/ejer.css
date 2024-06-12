@@ -1,0 +1,17 @@
+
+section{
+image-rendering: 6;
+opacity: 100;
+border-radius:5%;
+}
+p{
+    color: azure;
+}
+h1,h2,h3{
+    color: bisque;
+}
+
+body{
+    background-image: url(https://media.glamour.mx/photos/654a875a8fb7db4bb602417e/master/pass/aurora_boreal.jpg);
+font-style: normal;
+}

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario</title>
+    <script src="scriptP.js"></script>
+    <link rel="stylesheet" href="pro.css">
+</head>
+<body>
+    <center>
+        <h1>RECETAS DELICIOSAS</h1>
+        <h3>Nombre Receta:</h3>
+        <input id="nombreReceta" type="text" placeholder="Nombre de receta">
+        <p><strong>Preparación:</strong></p>
+        <textarea id="preparacionReceta" name="textarea" rows="10" cols="50"></textarea>
+    </center>
+
+    <center>
+        <p><strong>Ingredientes:</strong></p>
+        <span><strong>Ingrediente:</strong></span>
+        <input id="nombreIngrediente" type="text" placeholder="ingrediente">
+        <span><strong>Cantidad:</strong></span>
+        <input id="cantidadIngrediente" type="number" placeholder="Cantidad">
+    </center>
+
+    <br>
+
+    <div id="listaRecetas"></div>
+
+    <br>
+
+    <center>
+        <button type="button" onclick="AgregarReceta()">Guardar</button>
+        <button type="button" onclick="EliminarReceta()">Eliminar</button>
+        <button type="button" onclick="agrarIngrediente()">Agregar Ingrediente</button>
+    </center>
+</body>
+</html>

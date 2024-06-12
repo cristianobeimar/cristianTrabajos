@@ -1,0 +1,18 @@
+.flex-container {
+    display: flex;
+    flex-direction:column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
+    background-image: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTAzxeUW3NFK_V5wyF1QR5UjrvaE4TRs3yk0Opi-JQcbYj-XO9w);
+}
+      .flex-item {
+        padding: 10px;
+        border: 1px solid #cccccc;
+        background-color: rgb(18, 250, 68);
+        border-radius: 10px;
+        
+      }
+      
+      

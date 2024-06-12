@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>modulos</h1>
+    <div>
+        <input id="number1"type="number"/>
+        <span id="operador">?</span>
+        <input id="number2" type="number"/>
+        
+        <span>resultado</span>
+        <span>=</span>
+        <span id="resultado"></span>
+    </div>
+    <div>
+        <button type="button" onclick="calcular('sumar')">Sumar</button>
+        <button type="button" onclick="calcular('restar')">Restar</button>
+        <button type="button" onclick="calcular('multiplicar')">Multiplicar</button>
+        <button type="button" onclick="calcular('dividir')">Dividir</button>
+        <button type="button" onclick="calcular('potencia')">potencia</button>
+        <button type="button" onclick="calcular('raiz')">raiz</button>
+    </div>
+    <script src="scriptmodulos.js" type="module"></script>
+
+
+    <h1>modulo 2</h1>
+    
+    <input id="number"type="number"/>
+    <span>resultado</span>
+        <span>=</span>
+        <span id="resultado2"></span>
+    <div></div>
+    <button type="button" onclick="calcular2('redondear')">redondear</button> 
+    <span id="operador2">?</span>
+    <button type="button" onclick="calcular2('valorAbsoluto')">valor absoluto</button>
+</body>
+</html>

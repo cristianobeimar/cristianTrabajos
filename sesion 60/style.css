@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    background-image: url(https://lh3.googleusercontent.com/drive-storage/AJQWtBOwr21K7f_9qxg6OBDuCg4RHVD_F1VKF03lcDUJ6RO36pYSDXbc6FV73iVjvETtSamLwmHbS182no9n2c59jJjdcewbfCk6C2daBnzSOzaFNQ0=w1349-h599);
+    font-family: Arial, sans-serif;
+}
+
+.bg-gradient{
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.header{
+    background-color: #141414;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    position: relative;
+}
+
+.header nav{
+    display: flex;
+    align-items: center;
+}
+
+.header img{
+    width: 100px;
+}
+
+.header nav a{
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.header button{
+    background-color: #d81f26;
+    color: #fff;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    height: 80vh;
+   
+}
+
+.main .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+}
+main button{
+    background-color: #d81f26;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+
+}
+main input{
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #141414cb;
+}
+footer{
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+    color:#fff;
+}
+footer p a,a:visited,a:link,
+a:hover{
+    text-decoration: none;
+    color:#fff;
+
+}
+footer ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-direction:row ;
+    flex-wrap: wrap;
+    max-width: 700px;
+}
+footer ul li{
+   margin: 8px; 
+}
+.container2 {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction:row;
+    align-items: center;
+    background:#141414;
+}
+.comtainer2{
+
+}
+@media (max-widtth: 768px)
+

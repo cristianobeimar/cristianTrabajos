@@ -1,0 +1,30 @@
+.bg-gradient{
+    background-image:linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+}
+.header{
+    background-color: #141414;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    position: relative;
+}
+.header nav{
+    display: flex;
+    align-items: center;
+}
+.header img{
+    width: 100px;
+}
+.header nav a{
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.header button{
+    background-color: #d81f26;
+    color: #fff;
+    border:none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px;
+}

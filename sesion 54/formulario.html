@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario</h1>
+    <div>
+        <form class="mx--4 d-flex flex-column" action="/submit">
+
+    <label for="nombre">Nombre:</label>
+    <input id="nombre"type="text" placeholder="Nombre">
+</div>
+<br>
+    <div class="m-4">
+<label for="correo">email:</label>
+    <input class="correo" type="email" placeholder="email"/>
+</div>
+<div class="m-4">
+    <br>
+    <label for="contraseña">contraseña:</label>
+        <input id="contraseña" type="password" placeholder="contraseña">
+    </div c>
+    <br>
+    <label for="Edad">Edad:</label>
+        <input id="Edad" type="number" placeholder="Edad">
+    </div>
+    <br>
+    <br>
+    <div class="m-4">
+        <label for="birthdate">Fecha de nacimiento:</label>
+        <input class="form-control" type="date" id="birthdate">
+    </div>
+
+<br>
+<br>
+<div class="m-4">
+    <label for="student">¿Está en clase?:</label>
+    <input type="checkbox" id="student">
+</div>
+<br>
+<div class="m-4">
+    <label for="contry">Pais</label>
+    <select id="country" name="country">
+        <option value="colombia">Colombia</option>
+        <option value="españa">España</option>
+        <option value="mexico">México</option>
+        <option value="eeuu">EEUU</option>
+        <option value="salvador">El Salvador</option>
+        <option value="ecuador">Ecuador</option>
+    </select>
+</div>
+<br>
+<div class="m-4">
+    <fieldset>
+        <legend>Color favorito:</legend>
+        <label for="color1">
+            <input type="radio" id="color1" name="color" value="rojo">
+            Rojo
+        </label><br>
+
+        <label for="color2">
+            <input type="radio" id="color2" name="color" value="verde">
+            Verde
+        </label><br>
+
+        <label for="color3">
+            <input type="radio" id="color3" name="color" value="azul">
+            Azul
+        </label><br><br>
+    </fieldset>
+</div>
+
+<div class="m-4">
+    <label for="color">Segundo color favorito:</label>
+    <input value="#e66465" type="color" id="color">
+</div>
+
+<div>
+    <input class="m-2 btn btn-primary" type="submit">
+<input class="m-2 btn btn-secondary" type="reset">
+</div>
+<br>
+<div class="m-4">
+    <input class="form-control" type="file">   
+</div>
+</form>
+
+<meter style="height: 30px;" value="2" min="0" max="10"></meter>
+<progress value="70" max="100">100</progress>
+
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+<input type="range" id="a" value="50">+
+<input type="number" id="b" value="50">
+= <output name="resultado" for="a b">100</output>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+#titulo{
+    color: blue;
+     
+    
+ }
+ .color{
+     color:greenyellow
+ }
+ #boton{
+     color:chartreuse;
+     border-radius: 50px;
+     margin-top: 20px;
+ }
+ #boton{
+     border-color: aqua;
+     border-radius: 50px;
+ }
+ body{
+     background-image: url("https://img.freepik.com/foto-gratis/collage-fondo-programacion_23-2149901771.jpg")
+ }
+ 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Unidades</title>
+</head>
+<body>
+    <script> src="conversorU.js" </script>
+    <h1>Conversor de Unidades</h1>
+    <p>Ingresa una cantidad y selecciona las unidades de entrada y salida:</p>
+    <input type="text" id="inputCantidad">
+    <select id="selectUnidadEntrada">
+        <option value="km">Kilómetros</option>
+        <option value="mi">Millas</option>
+        <option value="c">Celsius</option>
+        <option value="f">Fahrenheit</option>
+    </select>
+    <select id="selectUnidadSalida">
+        <option value="km">Kilómetros</option>
+        <option value="mi">Millas</option>
+        <option value="c">Celsius</option>
+        <option value="f">Fahrenheit</option>
+    </select>
+    <button onclick="convertir()">Convertir</button>
+    <p id="resultado"></p>
+</body>
+</html>
