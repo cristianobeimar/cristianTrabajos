@@ -38,3 +38,14 @@ img{
     max-width: 200px;
     max-height: 200px;
 }
+.buuton{
+    background-color:#b1afaf ;
+    
+}
+.scrolt{
+    display: flex;
+    max-height: 200px;
+    background-color: #fff;
+    color:#141414;
+    border-bottom: none;
+}

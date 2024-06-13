@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de comentarios</h1>
+        <form id="comentForm">
+            <label for="name">Nombre:</label>
+            <br>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="comment">comentario:</label>
+            <br>
+            <textarea id ="comment" name="comment" required></textarea>
+            <br>
+            <button type="submit" class="enviar">Enviar</button>
+        </form>
+        <h2 class="comentarios">Comentarios</h2>    
+        <div id="commentsList"></div>
+    </div>
+    <script src="script1.js"></script>
+</body>
+</html>
