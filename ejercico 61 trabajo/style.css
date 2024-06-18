@@ -13,8 +13,9 @@ header{
     
 }
 img{
-    width: 300px;
-    border-radius: 20%;
+    width: 100%;
+    height: 70px;
+    border-radius: 10%;
     border-left: 100px;
 }
 .container{
@@ -22,11 +23,12 @@ img{
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-   background-color:#141414b2;
+   background-color:#52a009b2;
    color: aliceblue;
    margin-top:10px;
    margin-left:60px;
    margin-right: 60px;
+   border-radius: 20px;
 }
 #agregar{
 background-color: rgb(21, 245, 178);
