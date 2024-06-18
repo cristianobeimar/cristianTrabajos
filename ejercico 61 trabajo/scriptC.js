@@ -24,20 +24,31 @@ function MostrarTareas(){
     let ulMostrar = document.getElementById('ulMostrar')
     
     console.log(ulMostrar)
+    const botonCompletar = document.createElement("button")
+    botonCompletar.textContent = "X"
+    botonCompletar.style.backgroundColor = "#ff0000"
+
     tareas.map((item)=>{
+        ulMostrar.style.color = "#ff0000" 
+        ulMostrar.innerHTML += `<li>nombre: ${item.titulo} -- Descripcion: ${item.descripcionTarea}</li>`
+        ulMostrar.appendChild(botonCompletar)
+    })
+
+    botonCompletar.addEventListener("click", function(){
+        ulMostrar.style.color = "#006400" 
+        botonCompletar.textContent = "✔"
+        botonCompletar.style.backgroundColor = "#00ff00"
+    })
+
+}
+function eliminarTarea() {
+    let arayTareas = JSON.parse(localStorage.getItem('tareas'))
+    arayTareas.pop()
+    localStorage.setItem('tareas', JSON.stringify(arayTareas))
+    ulMostrar.innerHTML = ''
+    arayTareas.map((item)=>{
         ulMostrar.innerHTML += `<li>nombre: ${item.titulo} -- Descripcion: ${item.descripcionTarea}</li>`
     })
+    
 }
-// function eliminarTarea() {
-//     let borrar = document.getElementById("eliminar")
-//     let indiceAEliminar = prompt("Ingrese el índice de la tarea que desea eliminar:");
 
-//     if (indiceAEliminar >= 0 && indiceAEliminar < tareas.length) {
-//         tareas.splice(indiceAEliminar, 1);
-//         console.log("Tarea eliminada correctamente.");
-//     } else {
-//         console.log("Índice no válido. Intente de nuevo.");
-//     }
-// }
-// let continuar = true
-// 

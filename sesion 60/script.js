@@ -1,4 +1,5 @@
-document.getElementById("menu-btn").addEventListener('clik',function(){
-    const nav = document.getElementById("nav");
-    nav.className.toggle('open');
-})
+document.getElementById('menu-btn').addEventListener('click', function() {
+    const nav = document.getElementById('nav');
+    // console.log(nav)
+    nav.classList.toggle('open');
+});
