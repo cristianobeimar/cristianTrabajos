@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>EJERCICIO</h2>
+
+<p>Escribe un indice</p>
+
+<input id="prueva" type="text">
+<button type="button" onclick="myFunction()">buscar</button>
+
+<p id="mensaje"></p>
+
+<script>
+    let miAray = [1,3,6,9,11];
+   function myFunction() {
+    const mensaje = document.getElementById("mensaje");
+    mensaje.innerHTML =""
+    const indice = document.getElementById("prueva").value;
+
+    try { 
+        if (indice.trim() == "")throw "mal"
+        if (isNaN(indice)) throw "muy mal"
+        if (indice < 1) throw"muy bajo"
+        if (indice > 11) throw"muy alto"
+        mensaje.innerHTML = 'el numero que hay en esa posicion es: '+miAray[indice - 1]
+    }
+    catch(error) {
+    mensaje.innerHTML = "error " + error
+    }
+    finally {
+        document.getElementById("prueva").value = "";
+    }
+}
+
+</script>
+
+</body>
+</html>
