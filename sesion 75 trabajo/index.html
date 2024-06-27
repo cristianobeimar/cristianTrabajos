@@ -20,13 +20,13 @@
 
     try { 
         if (indice.trim() == "")throw "mal"
-        if (isNaN(indice)) throw "muy mal"
-        if (indice < 1) throw"muy bajo"
-        if (indice > 11) throw"muy alto"
-        mensaje.innerHTML = 'el numero que hay en esa posicion es: '+miAray[indice - 1]
+        if (isNaN(indice)) throw "caracter erroneo"
+        if (indice < 1) throw"Numero muy bajo"
+        if (indice > 11) throw"Numero muy alto"
+        mensaje.innerHTML = 'el numero en esa posicion es: '+miAray[indice - 1]
     }
     catch(error) {
-    mensaje.innerHTML = "error " + error
+    mensaje.innerHTML = "Error " + error
     }
     finally {
         document.getElementById("prueva").value = "";
