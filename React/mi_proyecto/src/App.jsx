@@ -16,7 +16,7 @@ function App() {
   console.log(products);
   return (
     <>
-      <h1>esta es la portada </h1>
+      <h1>Mi tienda virtual</h1>
       {products.map((e) => {
         return (
           <>

@@ -3,12 +3,18 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '../public/vite.svg'
 import logo from '../public/ayte_1.svg'
 import './App.css'
+import Profile from './componentes/app.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  
   return (
     <>
+    <div>
+      
+      <Profile/>
+
+    </div>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
