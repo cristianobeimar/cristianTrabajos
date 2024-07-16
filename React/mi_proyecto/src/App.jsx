@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from "react";
-// import Getproductos from "./components/Getproductos";
-import Getproductos from "./components/Getproductos";
+import "./App.css";
 
+import Getproductos from "./components/Getproductos";
+import Navegacion from "./components";
+import { CardProductos } from "./components/CardProductos";
+// import {Formulario} from "./components";
 function App() {
   const [products, setproducts] = useState([]);
 
   const funcionProducts = async () => {
-    const proctos = await Getproductos();
-    setproducts(proctos);
+    const productos = await Getproductos();
+    setproducts(productos);
   };
 
   useEffect(() => {
     funcionProducts();
   }, []);
-  console.log(products);
+
   return (
     <>
+      <Navegacion />
       <h1>Mi tienda virtual</h1>
       {products.map((e) => {
         return (
-          <>
-            <h3>{e.title}</h3> 
-            <p>{e.description}</p>
-            <p>{e.price}</p>
-            <img src={e.image} alt="e.title" />
-          </>
+          <div className="content">
+            <CardProductos
+              title={e.title}
+              imagen={e.image}
+              description={e.description}
+              Precio={e.price}
+            />
+          </div>
         );
       })}
     </>

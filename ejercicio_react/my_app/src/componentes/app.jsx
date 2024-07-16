@@ -1,16 +1,17 @@
-function Profile() {
-    return (
-     <><img
-     src="https://i.imgur.com/MK3eW3As.jpg"
-     alt="Katherine Johnson"
-   />
-   <p>Katherine Johnson</p>
-   <div> <p>telefono</p>
-   <p>Direccion</p>
-   <button></button>
-   </div>ver detalles
-    
-     </> 
-    );
-  }
-  export default Profile
+function Profile({ name, img, telephone, address, age }) {
+  return (
+    <>
+      <img src={img} alt={name} />
+
+      <div>
+        <h3>{name}</h3>
+        <p>telefono: {telephone}</p>
+        <p>Direccion: {address}</p>
+        <p>Edad: {age}</p>
+      </div>
+
+      <button>ver detalles</button>
+    </>
+  );
+}
+export default Profile;

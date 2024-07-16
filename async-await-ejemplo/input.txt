@@ -1,0 +1,1 @@
+Este es un ejercicio para agregar texto o contenido a un archivo utilizando la libreria fs de node.js
