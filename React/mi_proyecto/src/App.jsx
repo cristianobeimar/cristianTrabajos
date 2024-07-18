@@ -3,7 +3,7 @@ import "./App.css";
 
 import Getproductos from "./components/Getproductos";
 import Navegacion from "./components";
-import { CardProductos } from "./components/CardProductos";
+import { CardProductos } from "./components/CardProducts/CardProductos";
 // import {Formulario} from "./components";
 function App() {
   const [products, setproducts] = useState([]);
