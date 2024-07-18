@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-
 import Getproductos from "./components/Getproductos";
-import Navegacion from "./components";
+import Navegacion from "./components/Navegacion/navegacion";
 import { CardProductos } from "./components/CardProducts/CardProductos";
 // import {Formulario} from "./components";
 function App() {
@@ -21,18 +20,18 @@ function App() {
     <>
       <Navegacion />
       <h1>Mi tienda virtual</h1>
-      {products.map((e) => {
-        return (
-          <div className="content">
+      <div className="content">
+        {products.map((e) => {
+          return (
             <CardProductos
               title={e.title}
               imagen={e.image}
               description={e.description}
               Precio={e.price}
             />
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </>
   );
 }

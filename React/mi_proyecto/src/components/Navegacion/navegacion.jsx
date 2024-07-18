@@ -1,6 +1,8 @@
 import { useState } from "react";
-import FormLogin from "./FormLogin/FormLogin";
+import FormLogin from "../FormLogin/FormLogin";
+import "./navegacion.css";
 
+// import Navegacion from "./navegacion"
 export default function Navegacion() {
   return (
     <>
@@ -13,10 +15,10 @@ export default function Navegacion() {
           <a href="login.html"></a>
           <FormLogin />
         </nav>
-        <button class="class-menu-btn" id="menu-btn">&#9776;</button>
+        <button class="class-menu-btn" id="menu-btn">
+          &#9776;
+        </button>
       </header>
     </>
   );
 }
-
-
