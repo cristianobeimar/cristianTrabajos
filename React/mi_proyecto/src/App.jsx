@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <Navegacion />
-      <h1>Mi tienda virtual</h1>
+      <h1>Moda y bellesa</h1>
       <div className="content">
         {products.map((e) => {
           return (
