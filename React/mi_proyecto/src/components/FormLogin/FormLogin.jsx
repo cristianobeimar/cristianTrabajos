@@ -1,46 +1,63 @@
 import { useEffect, useState } from "react";
-import './login.css'
+import "./login.css";
+import { LoginUsuario } from "../LoginUsuario/LoginUsuario";
+// import LoginUsuario from "../LoginUsuario/LoginUsuario";
 export default function FormLogin() {
   const [activo, setactivo] = useState(false);
+  const [registrarse, setRegistrarse] = useState(false);
   return (
     <>
       <button
         className="button"
         onClick={(e) => {
           setactivo(true);
-        }}>
-          
+        }}
+      >
         iniciar cesion
       </button>
-
       {activo && (
         <div className="conatainer-login-form">
           <div className="background-modal" onClick={() => setactivo(false)} />
           <div className="form-container">
-            <h2>Iniciar cesion</h2>
-            <form>
-              <input type="email" placeholder="Email o numero de celular" />
+            {!registrarse && (
+              <>
+                <h2>Iniciar cesion</h2>
+                <form>
+                  <input type="email" placeholder="Email o numero de celular" />
 
-              <input type="password" placeholder="Contraseña" />
+                  <input type="password" placeholder="Contraseña" />
 
-              <button className="buut" type="button" value="iniciar cesion">
-                Iniciar cesion
-              </button>
-              <a className="text-align-center" href="">
-                ¿Olvidastes tu caontraseña?
-              </a>
-              <p className="tex.align-center">Olvidates tu contraseña?</p>
-              <button className="btn-code" type="button">
-                Crear cuenta nueva
-              </button>
+                  <button className="buut" type="button" value="iniciar cesion">
+                    Iniciar cesion
+                  </button>
+                  <p className="text-align-center" href="">
+                    ¿Olvidastes tu contraseña?
+                  </p>
+                  <button onClick={() => setRegistrarse(true)}>
+                  Crear cuenta
+                </button>
 
-              <div className="remember">
-                <input className="check" type="checkbox" name="" id="remember"/>
-                <label for="remember">Recuerdame</label>
-              </div>
-            </form>
-
-            {/* <button
+                  {/* <LoginUsuario /> */}
+                  <div className="remember">
+                    <input
+                      className="check"
+                      type="checkbox"
+                      name=""
+                      id="remember"
+                    />
+                    
+                    <label for="remember">Recuerdame</label>
+                  </div>
+                </form>
+               
+              </>
+            )}
+            {registrarse && (
+              <LoginUsuario setRegistrarse={setRegistrarse}/>
+             
+            )}
+          </div>
+          {/* <button
               className="button"
               onClick={(e) => {
                 setactivo(false);
@@ -48,7 +65,6 @@ export default function FormLogin() {
             >
               cerrar
             </button> */}
-          </div>
         </div>
       )}
     </>

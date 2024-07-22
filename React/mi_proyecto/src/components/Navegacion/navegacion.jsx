@@ -13,10 +13,10 @@ export default function Navegacion() {
           <a href="">Woman clothes</a>
           <a href="">Technological articles</a>
           <a href="">Jewelry</a>
-          <a href="login.html"></a>
+          {/* <a href="login.html"></a> */}
           <FormLogin />
         </nav>
-        <button class="class-menu-btn" id="menu-btn">
+        <button className="class-menu-btn" id="menu-btn">
           &#9776;
         </button>
       </header>
