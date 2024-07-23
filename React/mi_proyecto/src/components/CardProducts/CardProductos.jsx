@@ -27,7 +27,7 @@ export const CardProductos = ({
             </div>
           </div>
         </div>
-        <button>comprar</button>
+        <button className="but">comprar</button>
       </div>
     </>
   );

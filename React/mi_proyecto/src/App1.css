@@ -1,0 +1,22 @@
+.content {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: space-around;
+  flex-wrap: wrap;
+}
+.joyas{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.Jewelery{
+display: flex;
+flex-direction: column;
+margin: 30px;
+padding: 15px;
+margin-right: 50px;
+
+}
+

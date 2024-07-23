@@ -1,10 +1,21 @@
 import { useEffect, useState } from "react";
 import "./login.css";
 import { LoginUsuario } from "../LoginUsuario/LoginUsuario";
+import { signInWithPopup } from "firebase/auth";
+import { auth, providerGoogle } from "../../fireBase/credenciales";
 // import LoginUsuario from "../LoginUsuario/LoginUsuario";
+
 export default function FormLogin() {
   const [activo, setactivo] = useState(false);
   const [registrarse, setRegistrarse] = useState(false);
+  const iniciarGoogle = async () => {
+    try {
+      await signInWithPopup(auth, providerGoogle);
+    } catch (error) {
+      console.log("error al iniciar secion");
+    }
+  };
+
   return (
     <>
       <button
@@ -34,8 +45,8 @@ export default function FormLogin() {
                     ¿Olvidastes tu contraseña?
                   </p>
                   <button onClick={() => setRegistrarse(true)}>
-                  Crear cuenta
-                </button>
+                    Crear cuenta
+                  </button>
 
                   {/* <LoginUsuario /> */}
                   <div className="remember">
@@ -45,26 +56,17 @@ export default function FormLogin() {
                       name=""
                       id="remember"
                     />
-                    
+
                     <label for="remember">Recuerdame</label>
                   </div>
                 </form>
-               
+                <button className="button" onClick={iniciarGoogle}>
+                  Iniciar sesion con Google
+                </button>
               </>
             )}
-            {registrarse && (
-              <LoginUsuario setRegistrarse={setRegistrarse}/>
-             
-            )}
+            {registrarse && <LoginUsuario setRegistrarse={setRegistrarse} />}
           </div>
-          {/* <button
-              className="button"
-              onClick={(e) => {
-                setactivo(false);
-              }}
-            >
-              cerrar
-            </button> */}
         </div>
       )}
     </>

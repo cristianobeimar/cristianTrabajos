@@ -16,11 +16,11 @@ import { useEffect, useState } from "react";
         Crear cuenta nueva
       </button>
 
-    // const [input, setInput] = useState("");
-    // const inputText= (e)=>{
-    //   const text = e.target.value
-    //   setInput(text);
-    // }
+// const [input, setInput] = useState("");
+// const inputText= (e)=>{
+  //   const text = e.target.value
+  //   setInput(text);
+  // }
 
     const saveData = ()=>{
         localStorage.setItems("nombre".input)
