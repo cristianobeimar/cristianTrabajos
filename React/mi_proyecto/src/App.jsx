@@ -56,7 +56,11 @@ function App() {
   return (
     <>
       <Navegacion />
-      <div className="joyas">
+      <div className="buscar">
+      <input type="text" placeholder="Search Products..." />
+      </div>
+
+      <div className="title">
         <h1 className="titulo">Moda y bellesa</h1>
       </div>
       <div className="jewelery">

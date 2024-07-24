@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+
     export const LoginUsuario = ({
         nombre,
         apellido,
@@ -20,6 +21,7 @@ import { useEffect, useState } from "react";
 // const inputText= (e)=>{
   //   const text = e.target.value
   //   setInput(text);
+
   // }
 
     const saveData = ()=>{
