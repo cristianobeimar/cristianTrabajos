@@ -5,6 +5,7 @@
   overflow-x: auto;
   align-items: space-around;
   background-color: rgb(252, 252, 252);
+  scrollbar-color: transparent transparent;
 }
 .title {
   display: flex;
@@ -17,4 +18,10 @@
   margin: 30px;
   padding: 15px;
   margin-right: 50px;
+}
+.buscar, title{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(77, 238, 37, 0.753);
+  padding:2rem;
 }

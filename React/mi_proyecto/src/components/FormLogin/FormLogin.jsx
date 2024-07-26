@@ -9,7 +9,7 @@ export default function FormLogin() {
   const [activo, setactivo] = useState(false);
   const [registrarse, setRegistrarse] = useState(false);
   const [User, setUser] = useState({});
-  const [BtnActivo, setBtnActivo] = useState(false)
+  const [BtnActivo, setBtnActivo] = useState(false);
   const iniciarGoogle = async () => {
     try {
       await signInWithPopup(auth, providerGoogle);
@@ -22,7 +22,7 @@ export default function FormLogin() {
       if (usuario) {
         const u = await usuario;
         setUser(u);
-        setBtnActivo(true)
+        setBtnActivo(true);
         console.log(u);
       } else {
         console.log("No hay usuario");
@@ -32,7 +32,7 @@ export default function FormLogin() {
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
-      setBtnActivo(false)
+      setBtnActivo(false);
     } catch (error) {
       console.log("no se pudo cerrar Sesion");
     }
@@ -64,51 +64,10 @@ export default function FormLogin() {
                 onClick={() => setactivo(false)}
               />
               <div className="form-container">
-                {!registrarse && (
-                  <>
-                    <h2>Iniciar cesion</h2>
-                    <form>
-                      <input
-                        type="email"
-                        placeholder="Email o numero de celular"
-                      />
-
-                      <input type="password" placeholder="Contraseña" />
-
-                      <button
-                        className="buut"
-                        type="button"
-                        value="iniciar cesion"
-                      >
-                        Iniciar cesion
-                      </button>
-                      <p className="text-align-center" href="">
-                        ¿Olvidastes tu contraseña?
-                      </p>
-                      <button onClick={() => setRegistrarse(true)}>
-                        Crear cuenta
-                      </button>
-
-                      {/* <LoginUsuario /> */}
-                      <div className="remember">
-                        <input
-                          className="check"
-                          type="checkbox"
-                          name=""
-                          id="remember"
-                        />
-
-                        <label for="remember">Recuerdame</label>
-                      </div>
-                    </form>
-                    <button className="button" onClick={iniciarGoogle}>
-                      Iniciar sesion con Google
-                    </button>
-                  </>
-                )}
-                {registrarse && (
-                  <LoginUsuario setRegistrarse={setRegistrarse} />
-                )}
+                <LoginUsuario />
+                <button className="button" onClick={iniciarGoogle} style={{position:'relative'}}>
+                  Iniciar sesion con ____________<img src="https://1000marcas.net/wp-content/uploads/2020/02/logo-Google.png" alt="Google" width='70px' style={{position:'absolute', top:'-3px' , right:'30px'}}/>
+                </button>
               </div>
             </div>
           )}
@@ -116,4 +75,50 @@ export default function FormLogin() {
       )}
     </>
   );
+}
+
+{
+  /* <h2>Iniciar cesion</h2> */
+}
+{
+  /* <form>
+  <input
+  type="email"
+  placeholder="Email o numero de celular"
+  />
+  
+  <input type="password" placeholder="Contraseña" />
+  
+  <button
+  className="buut"
+  type="button"
+  value="iniciar cesion"
+  >
+  Iniciar cesion
+  </button>
+  <p className="text-align-center" href="">
+  ¿Olvidastes tu contraseña?
+  </p>
+  <button onClick={() => setRegistrarse(true)}>
+  Crear cuenta
+  </button>
+  
+  <LoginUsuario />
+  <div className="remember">
+  <input
+  className="check"
+  type="checkbox"
+  name=""
+  id="remember"
+  />
+  
+  <label for="remember">Recuerdame</label>
+  </div>
+  </form> */
+}
+
+{
+  /* {registrarse && (
+   <LoginUsuario  />
+  )} */
 }

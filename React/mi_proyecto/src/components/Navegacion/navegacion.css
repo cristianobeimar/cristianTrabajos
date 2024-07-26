@@ -35,14 +35,14 @@
   } */
   
   .header {
-    background-color: #141414;
+    background-color: #141414e0;
     display: flex;
     justify-content: space-around;
     padding: 20px;
   }
   
   .header button {
-    background-color: #d3e01c;
+    background-color: #dfee0b;
     color: #000000;
     border: none;
     border-radius: 4px;

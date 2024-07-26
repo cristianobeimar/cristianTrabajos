@@ -1,54 +1,87 @@
-
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { useEffect, useState } from "react";
+import { auth } from "../../fireBase/credenciales";
 
-    export const LoginUsuario = ({
-        nombre,
-        apellido,
-        correo,
-        contraseña,setRegistrarse
-      }) =>{
+export const LoginUsuario = () => {
+  const [activado, setactivado] = useState(false);
+  const [email, setemail] = useState(null);
+  const [contrasena, setcontrasena] = useState(null);
+  const [Registrado, setRegistrado] = useState(false);
 
-        const [activado, setactivado] = useState(false);
-        <button
-        className="button"
-        onClick={(e) => {
-            (true);
-        }}>        
-        Crear cuenta nueva
-      </button>
-
-// const [input, setInput] = useState("");
-// const inputText= (e)=>{
-  //   const text = e.target.value
-  //   setInput(text);
-
-  // }
-
-    const saveData = ()=>{
-        localStorage.setItems("nombre".input)
+  const RegistrarUsuario = async (e) => {
+    e.preventDefault();
+    console.log(contrasena);
+    console.log(email);
+    try {
+      await signInWithEmailAndPassword(auth, email, contrasena);
+    } catch (error) {
+      console.log(error);
     }
+  };
 
+  const crearUsuario = async (e) => {
+    e.preventDefault();
+    console.log(contrasena);
+    console.log(email);
+    try {
+      await createUserWithEmailAndPassword(auth, email, contrasena);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <div className='containerUsuario'>
-         <div className="background-modal2" onClick={() => setactivado(false)} />
-        <div>
-        <input type="text" 
+    // <div className="containerUsuario">
+    //   <div className="background-modal2" onClick={() => setactivado(false)} />
+    <>
+      <>
+        {/* <input type="text" 
         onChange={nombre}
         placeholder='Ingresa tu nombre' />
-
+        
         <input type="text" onChange={apellido}
-         placeholder='Apellidos' />
+        placeholder='Apellidos' /> */}
+      </>
+      <form
+        onSubmit={(e) => (Registrado ? RegistrarUsuario(e) : crearUsuario(e))}
+      >
+        <h1>{Registrado ? "Ingresar" : "Crear Cuenta"}</h1>
+        <input
+          value={email}
+          type="email"
+          onChange={(e) => setemail(e.target.value)}
+          placeholder="Email o numero de celular"
+        />
+        <input
+          value={contrasena}
+          type="password"
+          onChange={(e) => setcontrasena(e.target.value)}
+          placeholder="Contraseña"
+        />
 
-        <input type="email" onChange={correo} placeholder="Email o numero de celular" />
-        <input type="password" onChange={contraseña} placeholder="Contraseña" />
-
-        <button className='button' onClick={saveData}>
-            guaradar</button>
-        </div>
-        {/* <button onClick={() => setRegistrarse(false)}>
-                  ingresar
-                </button> */}
-    </div>
-  )
+        <button className="buut" type="submit">
+          {Registrado ? "Haz click para Ingresar" : "Haz click para Crear tu Cuenta "}
+        </button>
+        <p className="text-align-center" href="">
+          ¿Olvidastes tu contraseña?
+        </p>
+      </form>
+      <button
+        className="button"
+        onClick={() => {
+          setRegistrado(!Registrado);
+        }}
+      >
+        {Registrado ? "¿Aun no tienes Cuenta? Crea Una Aqui" : "¿Ya tienes cuenta? Ingresa aqui"}
+      </button>
+    </>
+  );
+};
+{
+  /* <button onClick={() => setRegistrarse(false)}>   ingresar </button> */
 }
-
+{
+  /* </div> */
+}
