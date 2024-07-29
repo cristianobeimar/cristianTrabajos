@@ -21,3 +21,4 @@ export default function BuscadorComponent({ datos }) {
     </div>
   );
 }
+<img src="" alt="" />
