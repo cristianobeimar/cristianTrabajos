@@ -3,6 +3,7 @@ import "./App1.css";
 import Getproductos from "./components/Getproductos";
 import Navegacion from "./components/Navegacion/navegacion";
 import { CardProductos } from "./components/CardProducts/CardProductos";
+import Buscador from "./components/Buscador/BuscadorComponent";
 // import {Formulario} from "./components";
 
 function App() {
@@ -57,7 +58,7 @@ function App() {
     <>
       <Navegacion />
       <div className="buscar">
-      <input type="text" placeholder="Search Products..." />
+        <Buscador datos={products} />
       </div>
 
       <div className="title">

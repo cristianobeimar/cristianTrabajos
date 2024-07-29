@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     z-index: 3;
+    
   }
   
   .background-modal {
@@ -39,22 +40,21 @@
     justify-content: center;
   }
   
-  .form-container,
-  h3,
-  input {
+  .form-container, h3,input {
     margin: 10px;
     margin-top: 15px;
   }
-  .buut {
+
+  .form-container .button{
+  background-color: rgb(235, 234, 233);
+  margin: 10px;
+  }
+
+  .buut{
     background-color: rgb(43, 126, 235) !important;
     height: 35px;
-    width: 36vw;
-    margin-left: 20px;
-  }
-  .btn-code {
-    background-color: rgb(19, 189, 42) !important;
-    height: 35px;
-    margin-left: 20px;
+    width: 35vw;
+    margin-left: 25px;
   }
   
   input {
@@ -70,3 +70,4 @@
     padding: 5%;
     margin-left: -130px;
   }
+  

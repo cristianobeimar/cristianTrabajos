@@ -22,17 +22,6 @@
     flex-wrap: nowrap;
     align-items: center;
    }
-  /* .image {
-    height: 100px;
-    width: 100px;
-  } */
-  /* .main .container{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 600px;
-  } */
   
   .header {
     background-color: #141414e0;
@@ -51,23 +40,12 @@
     margin-right: 30px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
-
-  
-  /* .articulo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
   
   @media (max-width: 768px) {
     #menu-btn {
       display: block;
     }
-    /* .nav.open {
-      right: 0;
-      top: 75px;
-    } */
-  
+
     .nav {
       height: 100%;
       width: 250px;

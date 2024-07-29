@@ -1,9 +1,9 @@
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,}
+from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "../../fireBase/credenciales";
+import './usuario.css';
 
 export const LoginUsuario = () => {
   const [activado, setactivado] = useState(false);
@@ -64,12 +64,9 @@ export const LoginUsuario = () => {
         <button className="buut" type="submit">
           {Registrado ? "Haz click para Ingresar" : "Haz click para Crear tu Cuenta "}
         </button>
-        <p className="text-align-center" href="">
-          ¿Olvidastes tu contraseña?
-        </p>
+        
       </form>
-      <button
-        className="button"
+      <button className="button"
         onClick={() => {
           setRegistrado(!Registrado);
         }}
@@ -79,9 +76,4 @@ export const LoginUsuario = () => {
     </>
   );
 };
-{
-  /* <button onClick={() => setRegistrarse(false)}>   ingresar </button> */
-}
-{
-  /* </div> */
-}
+
