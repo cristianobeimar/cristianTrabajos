@@ -7,43 +7,43 @@ import Buscador from "./components/Buscador/BuscadorComponent";
 // import {Formulario} from "./components";
 
 function App() {
-  const [products, setproducts] = useState([]);
-  const [Jewelery, setJewelery] = useState([]);
-  const [electronics, setElectronics] = useState([]);
-  const [menclothing, setmenclothing] = useState([]);
-  const [Womanclothing, setwomanclothing] = useState([]);
+  const [productos, setproductos] = useState([]);
+  const [joyas, setJoyas] = useState([]);
+  const [electrodomésticos, setElectrodomésticos] = useState([]);
+  const [ropaHombre, setRopaHombre] = useState([]);
+  const [ropaMujer, setRopaMujer] = useState([]);
 
   const funcionProducts = async () => {
     const productos = await Getproductos();
-    setproducts(productos);
+    setproductos(productos);
   };
 
   const funcionMenclothing = () => {
-    const menclothing = products.filter((e) => {
-      return e.category === "men's clothing";
+    const ropaHombre = productos.filter((e) => {
+      return e.CATEGORIA === "Ropa Hombre";
     });
-    setmenclothing(menclothing);
+    setRopaHombre(ropaHombre);
   };
 
   const funcionwomanclothing = () => {
-    const womanclothing = products.filter((e) => {
-      return e.category === "women's clothing";
+    const ropaMujer = productos.filter((e) => {
+      return e.CATEGORIA === "Ropa Mujer";
     });
-    setwomanclothing(womanclothing);
+    setRopaMujer(ropaMujer);
   };
 
   const funcionJewelary = () => {
-    const jewelery = products.filter((e) => {
-      return e.category === "jewelery";
+    const joyas = productos.filter((e) => {
+      return e.CATEGORIA === "Joyas";
     });
-    setJewelery(jewelery);
+    setJoyas(joyas);
   };
 
   const funcionElectronics = () => {
-    const electronics = products.filter((e) => {
-      return e.category === "electronics";
+    const electrodomesticos = productos.filter((e) => {
+      return e.CATEGORIA === "Electrodomésticos";
     });
-    setElectronics(electronics);
+    setElectrodomésticos(electrodomesticos);
   };
 
   useEffect(() => {
@@ -52,80 +52,73 @@ function App() {
     funcionElectronics();
     funcionMenclothing();
     funcionwomanclothing();
-  }, [products]);
+  }, [productos]);
+  const [longitudNum, setlongitudNum] = useState(null);
+
+  useEffect(() => {
+    const num = JSON.parse(localStorage.getItem("productosGuardados")) || [];
+    setlongitudNum(num.length);
+  }, []);
+
+  const numeroCarrito = () => {
+    const num = JSON.parse(localStorage.getItem("productosGuardados"));
+    setlongitudNum(num.length);
+  };
 
   return (
     <>
-      <Navegacion />
+      <Navegacion longitudNum={longitudNum} />
       <div className="buscar">
-        <Buscador datos={products} />
+        <Buscador datos={productos} />
       </div>
 
       <div className="title">
-        <h1 className="titulo">Moda y bellesa</h1>
+        <h2 className="titulo">Moda y bellesa</h2>
       </div>
-      <div className="jewelery">
-        <h1>Jewelery</h1>
-      </div>
+      
+      <section id="joyas">
+        <h1>Joyas</h1>
+        <div className="content">
+          {joyas.map((e, i) => {
+            return (
+              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+            );
+          })}
+        </div>
+      </section>
 
-      <div className="content">
-        {Jewelery.map((e, i) => {
-          return (
-            <CardProductos
-              key={i}
-              title={e.title}
-              imagen={e.image}
-              description={e.description}
-              Precio={e.price}
-            />
-          );
-        })}
-      </div>
+      <section id="electronica">
+        <h1>Articulos electronicos</h1>
+        <div className="content">
+          {electrodomésticos.map((e, i) => {
+            return (
+              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+            );
+          })}
+        </div>
+      </section>
 
-      <h1>electronics</h1>
-      <div className="content">
-        {electronics.map((e, i) => {
-          return (
-            <CardProductos
-              key={i}
-              title={e.title}
-              imagen={e.image}
-              description={e.description}
-              Precio={e.price}
-            />
-          );
-        })}
-      </div>
+      <section id="ropa_hombre">
+        <h1>Ropa hombre</h1>
+        <div className="content">
+          {ropaHombre.map((e, i) => {
+            return (
+              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+            );
+          })}
+        </div>
+      </section>
 
-      <h1>Men clothes</h1>
-      <div className="content">
-        {menclothing.map((e, i) => {
-          return (
-            <CardProductos
-              key={i}
-              title={e.title}
-              imagen={e.image}
-              description={e.description}
-              Precio={e.price}
-            />
-          );
-        })}
-      </div>
-
-      <h1>Woman clothes</h1>
-      <div className="content">
-        {Womanclothing.map((e, i) => {
-          return (
-            <CardProductos
-              key={i}
-              title={e.title}
-              imagen={e.image}
-              description={e.description}
-              Precio={e.price}
-            />
-          );
-        })}
-      </div>
+      <section id="ropa_mujer">
+        <h1>Ropa Mujer</h1>
+        <div className="content">
+          {ropaMujer.map((e, i) => {
+            return (
+              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+            );
+          })}
+        </div>
+      </section>
     </>
   );
 }

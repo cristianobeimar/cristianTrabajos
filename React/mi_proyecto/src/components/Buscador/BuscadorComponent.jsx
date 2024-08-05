@@ -5,20 +5,31 @@ export default function BuscadorComponent({ datos }) {
   const [productosFiltrados, setproductosFiltrados] = useState([]);
 
   const buscadorInput = (e) => {
-    const search = e.target.value;
-    setBusqueda(search);
+    const p = datos.filter((item) => {
+      return item.TITULO.includes(e.target.value);
+    });
+    setBusqueda(e.target.value);
+    setproductosFiltrados(p);
+    console.log(productosFiltrados);
+    
   };
 
   return (
     <div>
       <input
         type="text"
-        placeholder="search products"
+        placeholder="search products..."
         value={busqueda}
         onChange={buscadorInput}
       />
-      <ul>{productosFiltrados.length > 0 && <li>Productos encontrados</li>}</ul>
+      <ul>
+        {productosFiltrados.length > 0 && busqueda != ''  &&
+          productosFiltrados.map((e) => (
+            <>
+              <li>{e.TITULO}</li>
+            </>
+          ))}
+      </ul>
     </div>
   );
 }
-<img src="" alt="" />

@@ -1,27 +1,40 @@
-const express = require('express')
-const os = require('os');
-const app = express()
-const port = 3000
+const express = require("express");
+const os = require("os");
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-    res.send('hola mundo')
-})
+app.get("/", (req, res) => {
+  res.send("hola mundo");
+});
 
-app.get('/type', (req, res) => {
-    const nameOs = os.type();
+app.get("/type", (req, res) => {
+  const nameOs = os.type();
+
+  console.log(nameOs);
+
+  res.send(nameOs);
+});
+
+
+app.get('/cpus', (req, res) => {
+    const nameOs = os.cpus();
 
 console.log(nameOs);
 
-    res.send(type)
+    res.send(nameOs);
 })
 
+app.get('/totalmem', (req, res) => {
+    const nameOs = os.totalmem();
 
-app.get('/nombre', (req, res) => {
-    res.send('Cristian obeimar yalanda yalanda ')
+console.log(nameOs);
+
+    res.send(nameOs);
 })
-app.listen(port , () => {
-    console.log(`express app listening on port ${port}`)
-})
 
-
-
+app.get("/nombre", (req, res) => {
+  res.send("Cristian obeimar yalanda yalanda ");
+});
+app.listen(port, () => {
+  console.log(`express app listening on port ${port}`);
+});

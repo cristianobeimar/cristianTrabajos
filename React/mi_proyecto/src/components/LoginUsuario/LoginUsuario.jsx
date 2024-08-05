@@ -8,15 +8,15 @@ import './usuario.css';
 export const LoginUsuario = () => {
   const [activado, setactivado] = useState(false);
   const [email, setemail] = useState(null);
-  const [contrasena, setcontrasena] = useState(null);
+  const [contraseña, setcontrasena] = useState(null);
   const [Registrado, setRegistrado] = useState(false);
 
   const RegistrarUsuario = async (e) => {
     e.preventDefault();
-    console.log(contrasena);
+    console.log(contraseña);
     console.log(email);
     try {
-      await signInWithEmailAndPassword(auth, email, contrasena);
+      await signInWithEmailAndPassword(auth, email, contraseña);
     } catch (error) {
       console.log(error);
     }
@@ -24,10 +24,10 @@ export const LoginUsuario = () => {
 
   const crearUsuario = async (e) => {
     e.preventDefault();
-    console.log(contrasena);
+    console.log(contraseña);
     console.log(email);
     try {
-      await createUserWithEmailAndPassword(auth, email, contrasena);
+      await createUserWithEmailAndPassword(auth, email, contraseña);
     } catch (error) {
       console.log(error);
     }
@@ -55,14 +55,14 @@ export const LoginUsuario = () => {
           placeholder="Email o numero de celular"
         />
         <input
-          value={contrasena}
+          value={contraseña}
           type="password"
           onChange={(e) => setcontrasena(e.target.value)}
           placeholder="Contraseña"
         />
 
         <button className="buut" type="submit">
-          {Registrado ? "Haz click para Ingresar" : "Haz click para Crear tu Cuenta "}
+          {Registrado ? " Ingresar" : "Crear Cuenta "}
         </button>
         
       </form>

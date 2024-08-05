@@ -1,27 +1,28 @@
 .content {
   display: flex;
   width: 100%;
-  /* max-width: 1000px; */
   overflow-x: auto;
   align-items: space-around;
-  background-color: rgb(252, 252, 252);
+  /* background-color: rgb(233, 229, 15); */
+  background-color: rgb(238, 255, 0);
   scrollbar-color: transparent transparent;
+  margin: 10px;
 }
 .title {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.Jewelery {
-  display: flex;
-  flex-direction: column;
-  margin: 30px;
-  padding: 15px;
-  margin-right: 50px;
-}
+
 .buscar, title{
   display: flex;
   justify-content: center;
-  background-color: rgba(77, 238, 37, 0.753);
+  background-color: rgba(44, 228, 27, 0.849);
+  /* background-color: rgba(77, 238, 37, 0.753); */
   padding:2rem;
+}
+h1{
+  background-color:rgb(222, 224, 222) ;
+  font-style:oblique;
+ 
 }

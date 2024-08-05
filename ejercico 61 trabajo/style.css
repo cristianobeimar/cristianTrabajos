@@ -1,59 +1,57 @@
-body{
-    display: flex;
-    flex-direction: column;
-    background-image: url("https://ondho.ams3.cdn.digitaloceanspaces.com/uploads/2021/04/post-header-blog-herramientas-gestion-tareas.jpg");
-    flex-wrap: wrap;
+body {
+  display: flex;
+  flex-direction: column;
+  background-image: url("https://ondho.ams3.cdn.digitaloceanspaces.com/uploads/2021/04/post-header-blog-herramientas-gestion-tareas.jpg");
+  flex-wrap: wrap;
 }
 
-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
-img{
-    width: 100%;
-    height: 70px;
-    border-radius: 10%;
-    border-left: 100px;
+img {
+  width: 100%;
+  height: 70px;
+  border-radius: 10%;
+  border-left: 100px;
 }
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap;
-   background-color:#52a009b2;
-   color: aliceblue;
-   margin-top:10px;
-   margin-left:60px;
-   margin-right: 60px;
-   border-radius: 20px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #52a009b2;
+  color: aliceblue;
+  margin-top: 10px;
+  margin-left: 60px;
+  margin-right: 60px;
+  border-radius: 20px;
 }
-#agregar{
-background-color: rgb(21, 245, 178);
-padding-bottom: 15px;
-margin-bottom: 20px;
-border-radius: 20px;
-padding: 10px;
+#agregar {
+  background-color: rgb(21, 245, 178);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px;
 }
-#mostrar{
-    background-color: rgb(21, 245, 178);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    border-radius: 20px; 
-    padding: 10px;
+#mostrar {
+  background-color: rgb(21, 245, 178);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px;
 }
-#eliminar{
-    background-color: rgb(245, 21, 21);
-    color: #FFf;
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-    border-radius: 20px; 
-    padding: 10px;
+#eliminar {
+  background-color: rgb(245, 21, 21);
+  color: #fff;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  padding: 10px;
 }
-h1{
-    font-size: 40px;
-    font-family: Verdana, sans-serif;
+h1 {
+  font-size: 40px;
+  font-family: Verdana, sans-serif;
 }
-

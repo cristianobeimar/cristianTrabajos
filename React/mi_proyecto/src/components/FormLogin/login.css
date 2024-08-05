@@ -48,13 +48,15 @@
   .form-container .button{
   background-color: rgb(235, 234, 233);
   margin: 10px;
+ 
   }
 
   .buut{
     background-color: rgb(43, 126, 235) !important;
     height: 35px;
-    width: 35vw;
-    margin-left: 25px;
+    width: 25vw;
+    /* margin-left:10px; */
+    margin-right: 100px;
   }
   
   input {
