@@ -14,8 +14,10 @@ function App() {
   const [ropaMujer, setRopaMujer] = useState([]);
 
   const funcionProducts = async () => {
-    const productos = await Getproductos();
-    setproductos(productos);
+    const productose = await Getproductos();
+    setproductos(productose);
+    console.log(productose);
+    
   };
 
   const funcionMenclothing = () => {

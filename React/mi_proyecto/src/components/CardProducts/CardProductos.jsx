@@ -19,7 +19,7 @@ export const CardProductos = ({
         {/* datos-producto  */}
         <div className="datos-producto">
           <div className="row no-gutters">
-            <h2 className="card-title">{TITULO}</h2>
+            <h4 className="card-title">{TITULO}</h4>
             <p className="card-text">
               <small className="text-muted">{DESCRIPCION}</small>
             </p>
@@ -27,9 +27,7 @@ export const CardProductos = ({
               <p className="precio">
                 ${PRECIO}{" "}
                 <span className="price-before">{PRECIO + PRECIO / 2}</span>{" "}
-              </p>
-
-             
+              </p>         
             </div>
           </div>
         </div>
