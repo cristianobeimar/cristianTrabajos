@@ -70,6 +70,12 @@
   background-color: #ee0b0b;
 }
 
+.nav--typeProducts {
+  display: flex;
+  flex-direction: row;
+  margin-left: 1rem;
+}
+
 @media (max-width: 768px) {
   #menu-btn {
     display: block;
@@ -87,18 +93,33 @@
 
   .header .nav {
     display: flex;
+    padding: 1.5rem 0rem;
     flex-direction: column;
     padding: 12px;
     box-sizing: border-box;
     position: sticky;
   }
 
-  .header .nav a {
-    padding: 12px;
-    box-sizing: border-box;
-  }
-
   #menu-btn {
     order: -1;
+  }
+
+  .nav--typeProducts {
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 0px;
+  }
+
+  .nav--typeProducts a {
+    width: 100%;
+    border: 1px solid red;
+    align-items: center;
+    padding: 12px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .header button {
+    margin-left: 0px;
+    margin: 12px 0px;
   }
 }

@@ -11,10 +11,12 @@ export default function Navegacion({ longitudNum = 0 }) {
       <header className="header">
         <img className="logo" src={Logo} alt="" />
         <nav id="nav" className="nav">
-          <a href="#ropa_hombre">Ropa Hombre</a>
-          <a href="#ropa_mujer">Ropa Mujer</a>
-          <a href="#electronica">Articulos tecnologicos</a>
-          <a href="#joyas">Joyas</a>
+          <div className="nav--typeProducts">
+            <a href="#ropa_hombre">Ropa Hombre</a>
+            <a href="#ropa_mujer">Ropa Mujer</a>
+            <a href="#electronica">Articulos tecnologicos</a>
+            <a href="#joyas">Joyas</a>
+          </div>
           {/* <a href="login.html"></a> */}
           <FormLogin />
 
