@@ -10,6 +10,7 @@ export default function FormLogin() {
   const [registrarse, setRegistrarse] = useState(false);
   const [User, setUser] = useState({});
   const [BtnActivo, setBtnActivo] = useState(false);
+  
   const iniciarGoogle = async () => {
     try {
       await signInWithPopup(auth, providerGoogle);
@@ -46,7 +47,7 @@ export default function FormLogin() {
         <div>
           <p style={{ color: "#fff" }}>{User.email}</p>
           <br />
-          <button onClick={() => CerrarSesion()}>Cerrar Sesion</button>
+          <button  className= "sesion" onClick={() => CerrarSesion()}>Cerrar Sesion</button>
         </div>
       )}
       {!BtnActivo && (

@@ -1,15 +1,13 @@
 import Carrito from "../CarritoCompras/compras";
 import "./CardProducto.css";
-export const CardProductos = ({
-  TITULO,
-  item,
-  numeroCarrito,
-  IMAGEN,
-  DESCRIPCION,
-  PRECIO,
-  rating
-  
-}) => {
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
+
+
+const CardProducts = ({ IMAGEN, TITULO, DESCRIPCION, PRECIO, numeroCarrito, item }) => {
+  const { CardProducts, addToCart, removeFromCart, clearCart, decrementCart } =
+    useContext(CartContext);
+  // console.log(CardProducts);
   return (
     <>
       <div className="targeta">
@@ -27,7 +25,7 @@ export const CardProductos = ({
               <p className="precio">
                 ${PRECIO}{" "}
                 <span className="price-before">{PRECIO + PRECIO / 2}</span>{" "}
-              </p>         
+              </p>
             </div>
           </div>
         </div>
@@ -36,4 +34,4 @@ export const CardProductos = ({
     </>
   );
 };
-
+export default CardProducts;

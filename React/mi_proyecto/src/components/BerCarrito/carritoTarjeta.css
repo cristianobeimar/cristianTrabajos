@@ -1,0 +1,66 @@
+.targ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  max-width: 5rem;
+  border: 1px solid #b1acac;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(12, 12, 12, 0.5);
+  background-color: rgb(255, 255, 255);
+  color: #0c0c0c;
+  transition: all 0.3s;
+  margin: 15px;
+  text-align: center;
+  z-index: 6;
+}
+.img-card {
+  width: 100px;
+  height: 60px;
+  border-radius: 10px;
+}
+.img{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+}
+.targ .cantidad {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  bottom: 0;
+  color: rgb(248, 248, 248);
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+ 
+  
+}
+.targ button{
+    background-color: rgb(223, 247, 8);
+}
+.product-data{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 16px;
+}
+.buttons{
+  display:flex ;
+  align-items: center;
+  margin-right: 4rem;
+  padding-right: 50px;
+  margin: -50px;
+}
+
+.targ .delete{
+  margin-top: auto;
+  margin-right: -7rem;
+}
+

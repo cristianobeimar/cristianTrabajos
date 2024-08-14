@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./App1.css";
 import Getproductos from "./components/Getproductos";
 import Navegacion from "./components/Navegacion/navegacion";
-import { CardProductos } from "./components/CardProducts/CardProductos";
+import CardProducts  from "./components/CardProducts/CardProducts";
 import Buscador from "./components/Buscador/BuscadorComponent";
+import { useContext } from "react";
 // import {Formulario} from "./components";
 
 function App() {
@@ -14,9 +15,8 @@ function App() {
   const [ropaMujer, setRopaMujer] = useState([]);
 
   const funcionProducts = async () => {
-    const productose = await Getproductos();
-    setproductos(productose);
-    console.log(productose);
+    const productos = await Getproductos();
+    setproductos(productos);
     
   };
 
@@ -75,48 +75,48 @@ function App() {
       </div>
 
       <div className="title">
-        <h2 className="titulo">Moda y bellesa</h2>
+        <h1 className="titulo">Total Market</h1>
       </div>
       
       <section id="joyas">
-        <h1>Joyas</h1>
+        <h2>Joyas</h2>
         <div className="content">
           {joyas.map((e, i) => {
             return (
-              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i} item={e} />
             );
           })}
         </div>
       </section>
 
       <section id="electronica">
-        <h1>Articulos electronicos</h1>
+        <h2>Articulos electronicos</h2>
         <div className="content">
           {electrodomésticos.map((e, i) => {
             return (
-              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i}  item={e} />
             );
           })}
         </div>
       </section>
 
       <section id="ropa_hombre">
-        <h1>Ropa hombre</h1>
+        <h2>Ropa hombre</h2>
         <div className="content">
           {ropaHombre.map((e, i) => {
             return (
-              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i}  item={e}/>
             );
           })}
         </div>
       </section>
 
       <section id="ropa_mujer">
-        <h1>Ropa Mujer</h1>
+        <h2>Ropa Mujer</h2>
         <div className="content">
           {ropaMujer.map((e, i) => {
             return (
-              <CardProductos numeroCarrito={numeroCarrito} {...e} key={i} />
+              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i} item={e} />
             );
           })}
         </div>

@@ -2,13 +2,18 @@ import { useState } from "react";
 import FormLogin from "../FormLogin/FormLogin";
 import "./navegacion.css";
 import Logo from "../../assets/img.rgb.png";
+import CarritoTarjeta from "../BerCarrito/carritoTarjeta";
 // import Navegacion from "./navegacion"
 // import img from '../../assets/imagen-logo.png'
 
 export default function Navegacion({ longitudNum = 0 }) {
+  const productosCarrito = JSON.parse(
+    localStorage.getItem("productosGuardados")
+  );
+  const [activo, setActivo] = useState(false);
   return (
     <>
-      <header className="header">
+      <header className="header" >
         <img className="logo" src={Logo} alt="" />
         <nav id="nav" className="nav">
           <div className="nav--typeProducts">
@@ -20,7 +25,7 @@ export default function Navegacion({ longitudNum = 0 }) {
           {/* <a href="login.html"></a> */}
           <FormLogin />
 
-          <button className="carrito">
+          <button onClick={() => setActivo(!activo)} className="carrito">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -34,6 +39,16 @@ export default function Navegacion({ longitudNum = 0 }) {
               {longitudNum}
             </p>
           </button>
+
+          {activo && (
+            <div className="mascara_Carrito">
+              {productosCarrito.map((item, i) => (
+                <div key={i}>                
+                <CarritoTarjeta {...item} item={item} />
+                </div>
+              ))}
+            </div>
+          )}
           <button className="class-menu-btn" id="menu-btn">
             &#9776;
           </button>
