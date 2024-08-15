@@ -33,16 +33,9 @@ export const LoginUsuario = () => {
     }
   };
   return (
-    // <div className="containerUsuario">
-    //   <div className="background-modal2" onClick={() => setactivado(false)} />
     <>
       <>
-        {/* <input type="text" 
-        onChange={nombre}
-        placeholder='Ingresa tu nombre' />
-        
-        <input type="text" onChange={apellido}
-        placeholder='Apellidos' /> */}
+      
       </>
       <form
         onSubmit={(e) => (Registrado ? RegistrarUsuario(e) : crearUsuario(e))}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./carritoTarjeta.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { agregarCarrito } from "../CarritoCompras/compras";
+import { agregarCarrito, modificarCarrito } from "../CarritoCompras/compras";
 
 const CarritoTarjeta = ({
   TITULO,
@@ -11,10 +11,16 @@ const CarritoTarjeta = ({
   PRECIO,
   item,
   cantidad,
-  numeroCarrito,
+  actualizarCarrito,
 }) => {
+  const [Cantidad, setCantidad] = useState(cantidad);
+
   const [productos, setProductos] = useState([]);
-  const [Cantidad, setCantidad] = useState(1);
+
+  useEffect(() => {
+    setCantidad(cantidad);
+  }, [cantidad]);
+
   useEffect(() => {
     setCantidad(cantidad);
     const productosGuardados =
@@ -24,44 +30,32 @@ const CarritoTarjeta = ({
 
   const eliminarProducto = (ID_PRODUCTO) => {
     console.log("haciendo eliminando", ID_PRODUCTO);
-
-    // console.log(ID_PRODUCTO);
-
-    const productosActualizados = productos.filter(
+    const productosGuardados =
+      JSON.parse(localStorage.getItem("productosGuardados")) || [];
+    const productosActualizados = productosGuardados.filter(
       (producto) => producto.ID_PRODUCTO !== ID_PRODUCTO
     );
-    setProductos(productosActualizados);
-    localStorage.setItem(
-      "productosGuardados",
-      JSON.stringify(productosActualizados)
-    );
-    // numeroCarrito();
+    actualizarCarrito(productosActualizados);
   };
 
   const decrementCart = (ID_PRODUCTO) => {
     console.log("haciendo decremento");
-    const c = cantidad - 1;
+
+    const c = Cantidad - 1;
     setCantidad(c);
-    agregarCarrito(item, c);
-
-    // item.cantidad = cantidad - 1;
-    // const productosActualizados = productos
-    //   .map((producto) => {
-    //     if (producto.ID_PRODUCTO === ID_PRODUCTO) {
-    //       return { ...producto, cantidad: producto.cantidad - 1 };
-    //     }
-    //     console.log(producto.cantidad);
-    //     setCantidad(producto.cantidad);
-    //     return producto;
-    //   })
-    //   .filter((producto) => producto.cantidad > 0);
-
-    // setProductos(productosActualizados);
-    // localStorage.setItem(
-    //   "productosGuardados",
-    //   JSON.stringify(productosActualizados)
-    // );
-    // numeroCarrito();
+    modificarCarrito(item, c);
+    if (c === 0) {
+      eliminarProducto(ID_PRODUCTO);
+    } else {
+      const productosGuardados =
+        JSON.parse(localStorage.getItem("productosGuardados")) || [];
+      const productosActualizados = productosGuardados.map((producto) =>
+        producto.ID_PRODUCTO === ID_PRODUCTO
+          ? { ...producto, cantidad: c }
+          : producto
+      );
+      actualizarCarrito(productosActualizados);
+    }
   };
 
   return (
@@ -92,9 +86,7 @@ const CarritoTarjeta = ({
                 ${PRECIO}{" "}
                 <span className="price-before">{PRECIO + PRECIO / 2}</span>{" "}
               </p>
-              <p className="buttons">
-               Cantidad:{Cantidad}
-              </p>
+              <p className="buttons">Cantidad:{Cantidad}</p>
             </div>
           </div>
         </div>

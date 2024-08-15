@@ -1,14 +1,10 @@
-.card-img {
-  width: 100px;
-  height: 60px;
-  border-radius: 10px;
-}
 .targeta {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 300px;
+  min-width: 250px;
+  min-height: 400px;
   border: 1px solid #b1acac;
   border-radius: 8px;
   padding: 15px;
@@ -18,7 +14,6 @@
   transition: all 0.3s;
   margin: 15px;
   text-align: center;
- 
 }
 
 .targeta:hover {
@@ -26,15 +21,21 @@
   transform: scale(1.02);
 }
 
-.targeta img {
-  width: 170px;
-  height: 155px;
-  border-radius: 8px;
+.container_image {
+  height: 200px;
+  width: 200px;
+}
+
+.container_image > img {
+  object-fit: contain;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
 }
 
 .targeta h4 {
   font-size: 20px;
-  font:verdana;
+  font: verdana;
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -42,7 +43,12 @@
 .targeta p {
   font-size: 14px;
   color: #292828;
-  margin-bottom: 16px;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .targeta button {
@@ -54,7 +60,6 @@
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
- 
 }
 
 .targeta button:hover {
@@ -67,7 +72,6 @@
   flex-direction: column;
   width: 100%;
   margin-bottom: 16px;
-  
 }
 
 .precio_producto {
@@ -105,6 +109,3 @@
   width: 50px;
   height: 50px;
 }
-
-
-  

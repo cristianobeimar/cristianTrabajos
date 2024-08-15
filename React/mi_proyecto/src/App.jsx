@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./App1.css";
+import "./index.css";
 import Getproductos from "./components/Getproductos";
 import Navegacion from "./components/Navegacion/navegacion";
-import CardProducts  from "./components/CardProducts/CardProducts";
+import CardProducts from "./components/CardProducts/CardProducts";
 import Buscador from "./components/Buscador/BuscadorComponent";
 import { useContext } from "react";
 // import {Formulario} from "./components";
@@ -17,7 +18,6 @@ function App() {
   const funcionProducts = async () => {
     const productos = await Getproductos();
     setproductos(productos);
-    
   };
 
   const funcionMenclothing = () => {
@@ -75,26 +75,34 @@ function App() {
       </div>
 
       <div className="title">
-        <h1 className="titulo">Total Market</h1>
+        <h3 className="titulo">Total Market</h3>
       </div>
-      
-      <section id="joyas">
-        <h2>Joyas</h2>
-        <div className="content">
-          {joyas.map((e, i) => {
-            return (
-              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i} item={e} />
-            );
-          })}
-        </div>
-      </section>
+
+      <h2 id="joyas">Joyas</h2>
+      <div className="content">
+        {joyas.map((e, i) => {
+          return (
+            <CardProducts
+              numeroCarrito={numeroCarrito}
+              {...e}
+              key={i}
+              item={e}
+            />
+          );
+        })}
+      </div>
 
       <section id="electronica">
         <h2>Articulos electronicos</h2>
         <div className="content">
           {electrodomésticos.map((e, i) => {
             return (
-              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i}  item={e} />
+              <CardProducts
+                numeroCarrito={numeroCarrito}
+                {...e}
+                key={i}
+                item={e}
+              />
             );
           })}
         </div>
@@ -105,7 +113,12 @@ function App() {
         <div className="content">
           {ropaHombre.map((e, i) => {
             return (
-              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i}  item={e}/>
+              <CardProducts
+                numeroCarrito={numeroCarrito}
+                {...e}
+                key={i}
+                item={e}
+              />
             );
           })}
         </div>
@@ -116,7 +129,12 @@ function App() {
         <div className="content">
           {ropaMujer.map((e, i) => {
             return (
-              <CardProducts numeroCarrito={numeroCarrito} {...e} key={i} item={e} />
+              <CardProducts
+                numeroCarrito={numeroCarrito}
+                {...e}
+                key={i}
+                item={e}
+              />
             );
           })}
         </div>

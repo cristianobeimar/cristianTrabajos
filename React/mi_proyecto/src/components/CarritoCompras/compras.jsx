@@ -23,9 +23,35 @@ export const agregarCarrito = (item, cantidadP) => {
     (elemento) => elemento.ID_PRODUCTO !== item.ID_PRODUCTO
   );
 
+  // localStorage.setItem(
+  //   "productosGuardados",
+  //   JSON.stringify([...arrayFiltrado, item])
+  // );
+
+  const productosActualizados = [...arrayFiltrado, item];
   localStorage.setItem(
     "productosGuardados",
-    JSON.stringify([...arrayFiltrado, item])
+    JSON.stringify(productosActualizados)
+  );
+
+  // Emitir un evento personalizado
+  const event = new Event("carritoActualizado");
+  window.dispatchEvent(event);
+};
+
+export const modificarCarrito = (item, cantidadP) => {
+  const productosGuardados =
+    JSON.parse(localStorage.getItem("productosGuardados")) || [];
+
+  const index = productosGuardados.findIndex(
+    (element) => element.ID_PRODUCTO == item.ID_PRODUCTO
+  );
+  productosGuardados[index].cantidad = cantidadP;
+  console.log(productosGuardados[index]);
+
+  localStorage.setItem(
+    "productosGuardados",
+    JSON.stringify(productosGuardados)
   );
 };
 
@@ -39,7 +65,7 @@ export const Carrito = ({ item, numeroCarrito }) => {
           numeroCarrito();
         }}
       >
-        comprar
+        agregar al carrito
       </button>
     </>
   );

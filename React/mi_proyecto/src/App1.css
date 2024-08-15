@@ -2,11 +2,12 @@
   display: flex;
   width: 100%;
   overflow-x: auto;
-  align-items: space-around;
+  align-items: center;
+  /* align-items: space-around; */
   /* background-color: rgb(233, 229, 15); */
   background-color: rgb(238, 255, 0);
   scrollbar-color: transparent transparent;
-  margin: 10px;
+  min-height: 500px;
 }
 .title {
   display: flex;
@@ -21,8 +22,8 @@ title {
   background-color: rgba(44, 228, 27, 0.849);
   padding: 2rem;
 }
-h1 {
-  background-color: rgb(222, 224, 222);
+h3 {
+  font-size: 50px;
   font-family: shaded;
 }
 
@@ -33,5 +34,6 @@ h1 {
 
 @font-face {
   font-family: shaded;
-  src: url("../public/shaded_larch/ShadedLarch_PERSONAL_USE.ttf")
+  src: url("../public/shaded_larch/ShadedLarch_PERSONAL_USE.ttf");
 }
+
