@@ -22,28 +22,28 @@ function App() {
 
   const funcionMenclothing = () => {
     const ropaHombre = productos.filter((e) => {
-      return e.CATEGORIA === "Ropa Hombre";
+      return e.category === "men's clothing";
     });
     setRopaHombre(ropaHombre);
   };
 
   const funcionwomanclothing = () => {
     const ropaMujer = productos.filter((e) => {
-      return e.CATEGORIA === "Ropa Mujer";
+      return e.category === "women's clothing";
     });
     setRopaMujer(ropaMujer);
   };
 
   const funcionJewelary = () => {
     const joyas = productos.filter((e) => {
-      return e.CATEGORIA === "Joyas";
+      return e.category === "jewelery";
     });
     setJoyas(joyas);
   };
 
   const funcionElectronics = () => {
     const electrodomesticos = productos.filter((e) => {
-      return e.CATEGORIA === "Electrodomésticos";
+      return e.category === "electronics";
     });
     setElectrodomésticos(electrodomesticos);
   };
@@ -68,7 +68,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className="principal">
       <Navegacion longitudNum={longitudNum} />
       <div className="buscar">
         <Buscador datos={productos} />
@@ -139,7 +139,7 @@ function App() {
           })}
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

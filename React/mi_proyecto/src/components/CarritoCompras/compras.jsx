@@ -8,7 +8,7 @@ export const agregarCarrito = (item, cantidadP) => {
   const prod = [...productosGuardados, item];
 
   const ElemItem = prod.find(
-    (elemento) => elemento.ID_PRODUCTO == item.ID_PRODUCTO
+    (elemento) => elemento.id == item.id
   );
 
   const cantidad = !cantidadP
@@ -20,7 +20,7 @@ export const agregarCarrito = (item, cantidadP) => {
   item.cantidad = cantidad;
 
   const arrayFiltrado = prod.filter(
-    (elemento) => elemento.ID_PRODUCTO !== item.ID_PRODUCTO
+    (elemento) => elemento.id !== item.id
   );
 
   // localStorage.setItem(
@@ -44,7 +44,7 @@ export const modificarCarrito = (item, cantidadP) => {
     JSON.parse(localStorage.getItem("productosGuardados")) || [];
 
   const index = productosGuardados.findIndex(
-    (element) => element.ID_PRODUCTO == item.ID_PRODUCTO
+    (element) => element.id == item.id
   );
   productosGuardados[index].cantidad = cantidadP;
   console.log(productosGuardados[index]);
@@ -55,7 +55,7 @@ export const modificarCarrito = (item, cantidadP) => {
   );
 };
 
-export const Carrito = ({ item, numeroCarrito }) => {
+export const Carrito = ({ item, numeroCarrito = () => {} }) => {
   return (
     <>
       <button

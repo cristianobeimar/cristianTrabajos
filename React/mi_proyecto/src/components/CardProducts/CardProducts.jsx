@@ -2,31 +2,43 @@ import Carrito from "../CarritoCompras/compras";
 import "./CardProducto.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { Link, useNavigate } from "react-router-dom";
 
-
-const CardProducts = ({ IMAGEN, TITULO, DESCRIPCION, PRECIO, numeroCarrito, item }) => {
+const CardProducts = ({
+  image,
+  title,
+  description,
+  price,
+  numeroCarrito,
+  item,
+  id,
+}) => {
   const { CardProducts, addToCart, removeFromCart, clearCart, decrementCart } =
     useContext(CartContext);
+    const navigate = useNavigate()
+    const navegacion =()=>{
+      navigate(`/producto/${id-1}`)
+    }
+
+    const validPrice = !isNaN(price) && price !== undefined && price !== null ? Number(price) : 0;
+    const priceBefore = validPrice + validPrice / 2;
   // console.log(CardProducts);
   return (
-    <>
-      <div className="targeta">
+    < >
+      <div className="targeta" onClick={navegacion}>
         <div className="container_image">
-
-          <img src={IMAGEN}  alt={"superhero"} />
+          <img src={image} alt={"superhero"} />
         </div>
-        
+
         {/* datos-producto  */}
         <div className="datos-producto">
           <div className="row no-gutters">
-            <h4 className="card-title">{TITULO}</h4>
-            <p className="card-text">
-              {DESCRIPCION}
-            </p>
-            <div className="precio_producto">
-              <p className="precio">
-                ${PRECIO}{" "}
-                <span className="price-before">{PRECIO + PRECIO / 2}</span>{" "}
+            <h4 className="card-title">{title}</h4>
+            {/* <p className="card-text">{description}</p> */}
+            <div className="price_producto">
+              <p className="price">
+              ${validPrice.toFixed(2)}{" "}
+                <span className="price-before">${priceBefore.toFixed(2)}</span>{" "}
               </p>
             </div>
           </div>

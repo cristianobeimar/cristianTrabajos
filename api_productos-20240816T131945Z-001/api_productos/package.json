@@ -1,0 +1,18 @@
+{
+  "name": "api_prueba",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "ProductosUnoaUno": "json-server --watch ProductosUnoaUno.json  --port 5813",
+    "ProductosTodos": "json-server --watch ProductosTodos.json  --port 5814",
+    "start:all": "npm-run-all --parallel ProductosTodos  ProductosUnoaUno"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "json-server": "^1.0.0-beta.1",
+    "nodemon": "^3.1.4",
+    "npm-run-all": "^4.1.5"
+  }
+}

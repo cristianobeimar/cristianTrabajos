@@ -5,10 +5,10 @@ import { CartContext } from "../../context/CartContext";
 import { agregarCarrito, modificarCarrito } from "../CarritoCompras/compras";
 
 const CarritoTarjeta = ({
-  TITULO,
-  IMAGEN,
-  DESCRIPCION,
-  PRECIO,
+  title,
+  image,
+  description,
+  price,
   item,
   cantidad,
   actualizarCarrito,
@@ -72,19 +72,19 @@ const CarritoTarjeta = ({
           eliminar
         </button>
         <div className="img">
-          <img src={IMAGEN} className="img-card" alt={"superhero"} />
+          <img src={image} className="img-card" alt={"superhero"} />
         </div>
         {/* datos-producto  */}
         <div className="product-data">
           <div className="row no-gutters">
-            <h4 className="card-title">{TITULO}</h4>
+            <h4 className="card-title">{title}</h4>
             <p className="card-text">
-              <small className="text-muted">{DESCRIPCION}</small>
+              <small className="text-muted">{description}</small>
             </p>
-            <div className="precio_producto">
+            <div className="price_producto">
               <p className="precio">
-                ${PRECIO}{" "}
-                <span className="price-before">{PRECIO + PRECIO / 2}</span>{" "}
+                ${price}{" "}
+                <span className="price-before">{price + price / 2}</span>{" "}
               </p>
               <p className="buttons">Cantidad:{Cantidad}</p>
             </div>
