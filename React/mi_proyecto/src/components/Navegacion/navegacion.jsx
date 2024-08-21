@@ -79,7 +79,6 @@ export default function Navegacion({ longitudNum = 0 }) {
               {productosCarrito.length}
             </p>
           </button>
-
           {activo && productosCarrito.length >= 1 && (
             <div className="mascara_Carrito">
               {productosCarrito.map((item, i) => (

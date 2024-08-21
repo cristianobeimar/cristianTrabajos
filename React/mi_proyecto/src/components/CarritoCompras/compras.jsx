@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 
-export const agregarCarrito = (item, cantidadP) => {
+export const agregarCarrito = (item, cantidadPro) => {
   const productosGuardados =
     JSON.parse(localStorage.getItem("productosGuardados")) || [];
 
@@ -11,22 +11,17 @@ export const agregarCarrito = (item, cantidadP) => {
     (elemento) => elemento.id == item.id
   );
 
-  const cantidad = !cantidadP
+  const cantidad = !cantidadPro
     ? ElemItem.cantidad
       ? ElemItem.cantidad + 1
       : 1
-    : cantidadP;
+    : cantidadPro;
 
   item.cantidad = cantidad;
 
   const arrayFiltrado = prod.filter(
     (elemento) => elemento.id !== item.id
   );
-
-  // localStorage.setItem(
-  //   "productosGuardados",
-  //   JSON.stringify([...arrayFiltrado, item])
-  // );
 
   const productosActualizados = [...arrayFiltrado, item];
   localStorage.setItem(
@@ -58,8 +53,9 @@ export const modificarCarrito = (item, cantidadP) => {
 export const Carrito = ({ item, numeroCarrito = () => {} }) => {
   return (
     <>
+    
       <button
-        className="rating"
+        className=""
         onClick={() => {
           agregarCarrito(item);
           numeroCarrito();
@@ -67,6 +63,7 @@ export const Carrito = ({ item, numeroCarrito = () => {} }) => {
       >
         agregar al carrito
       </button>
+      
     </>
   );
 };

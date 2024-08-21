@@ -15,16 +15,17 @@ const CardProducts = ({
 }) => {
   const { CardProducts, addToCart, removeFromCart, clearCart, decrementCart } =
     useContext(CartContext);
-    const navigate = useNavigate()
-    const navegacion =()=>{
-      navigate(`/producto/${id-1}`)
-    }
+  const navigate = useNavigate();
+  const navegacion = () => {
+    navigate(`/producto/${id - 1}`);
+  };
 
-    const validPrice = !isNaN(price) && price !== undefined && price !== null ? Number(price) : 0;
-    const priceBefore = validPrice + validPrice / 2;
+  const validPrice =
+    !isNaN(price) && price !== undefined && price !== null ? Number(price) : 0;
+  const priceBefore = validPrice + validPrice / 2;
   // console.log(CardProducts);
   return (
-    < >
+    <div className="div_Cart_12">
       <div className="targeta" onClick={navegacion}>
         <div className="container_image">
           <img src={image} alt={"superhero"} />
@@ -37,15 +38,17 @@ const CardProducts = ({
             {/* <p className="card-text">{description}</p> */}
             <div className="price_producto">
               <p className="price">
-              ${validPrice.toFixed(2)}{" "}
+                ${validPrice.toFixed(2)}{" "}
                 <span className="price-before">${priceBefore.toFixed(2)}</span>{" "}
               </p>
             </div>
           </div>
         </div>
+      </div>
+      <div className="div_btn_AgregarCarrito_12">
         <Carrito numeroCarrito={numeroCarrito} item={item} />
       </div>
-    </>
+    </div>
   );
 };
 export default CardProducts;

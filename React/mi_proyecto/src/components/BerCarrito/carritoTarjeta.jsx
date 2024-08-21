@@ -28,29 +28,29 @@ const CarritoTarjeta = ({
     setProductos(productosGuardados);
   }, []);
 
-  const eliminarProducto = (ID_PRODUCTO) => {
-    console.log("haciendo eliminando", ID_PRODUCTO);
+  const eliminarProducto = (id) => {
+    console.log("haciendo eliminando", id);
     const productosGuardados =
       JSON.parse(localStorage.getItem("productosGuardados")) || [];
     const productosActualizados = productosGuardados.filter(
-      (producto) => producto.ID_PRODUCTO !== ID_PRODUCTO
+      (producto) => producto.id !== id
     );
     actualizarCarrito(productosActualizados);
   };
 
-  const decrementCart = (ID_PRODUCTO) => {
+  const decrementCart = (id) => {
     console.log("haciendo decremento");
 
     const c = Cantidad - 1;
     setCantidad(c);
     modificarCarrito(item, c);
     if (c === 0) {
-      eliminarProducto(ID_PRODUCTO);
+      eliminarProducto(id);
     } else {
       const productosGuardados =
         JSON.parse(localStorage.getItem("productosGuardados")) || [];
       const productosActualizados = productosGuardados.map((producto) =>
-        producto.ID_PRODUCTO === ID_PRODUCTO
+        producto.id === id
           ? { ...producto, cantidad: c }
           : producto
       );
@@ -65,8 +65,8 @@ const CarritoTarjeta = ({
           className="delete"
           onClick={() =>
             Cantidad <= 1
-              ? eliminarProducto(item.ID_PRODUCTO)
-              : decrementCart(item.ID_PRODUCTO)
+              ? eliminarProducto(item.id)
+              : decrementCart(item.id)
           }
         >
           eliminar

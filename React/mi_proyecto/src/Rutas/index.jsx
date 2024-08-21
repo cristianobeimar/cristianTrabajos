@@ -10,6 +10,7 @@ export default function Rutas() {
         <Route>
             <Route path="/" element={<App />} />
             <Route path="/producto/:id" element={<ProductsDetal />} />
+            <Route path="/product/:id" element={<ProductsDetal/>}/>
           {/* <Route index element={<Home />} />
           <Route path="*" element={<NoPage />} /> */}
         </Route>

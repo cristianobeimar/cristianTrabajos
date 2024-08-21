@@ -6,7 +6,7 @@ export default function BuscadorComponent({ datos }) {
 
   const buscadorInput = (e) => {
     const p = datos.filter((item) => {
-      return item.TITULO.includes(e.target.value);
+      return item.title.includes(e.target.value);
     });
     setBusqueda(e.target.value);
     setproductosFiltrados(p);
@@ -26,7 +26,7 @@ export default function BuscadorComponent({ datos }) {
         {productosFiltrados.length > 0 && busqueda != ''  &&
           productosFiltrados.map((e) => (
             <>
-              <li>{e.TITULO}</li>
+              <li>{e.title}</li>
             </>
           ))}
       </ul>
