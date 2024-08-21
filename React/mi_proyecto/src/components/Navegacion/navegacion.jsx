@@ -59,9 +59,7 @@ export default function Navegacion({ longitudNum = 0 }) {
             <a href="#electronica">Articulos tecnologicos</a>
             <a href="#joyas">Joyas</a>
           </div>
-          {/* <a href="login.html"></a> */}
           <FormLogin />
-
           <button
             onClick={() => (productosCarrito.length > 0 ? toggleModal() : "")}
             className="carrito"

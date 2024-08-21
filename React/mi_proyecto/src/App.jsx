@@ -68,15 +68,15 @@ function App() {
   };
 
   return (
+    
     <div className="principal">
+      
       <Navegacion longitudNum={longitudNum} />
       <div className="buscar">
+        <h3 id= "titulo">Total Market</h3>
         <Buscador datos={productos} />
       </div>
 
-      <div className="title">
-        <h3 className="titulo">Total Market</h3>
-      </div>
 
       <h2 id="joyas">Joyas</h2>
       <div className="content">

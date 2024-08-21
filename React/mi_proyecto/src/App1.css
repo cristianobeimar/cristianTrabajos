@@ -14,10 +14,12 @@
   scrollbar-color: transparent transparent;
   min-height: 500px;
 }
-.title {
-  display: flex;
+h3 {
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start; /* Cambiado de center a flex-start para alinear a la izquierda */
+  margin-right: 0; /* Elimina el margen a la derecha */
+  margin-left: 0; /*Asegura que no haya margen a la izquierda */
+  padding-left: 20px;
 }
 
 .buscar,

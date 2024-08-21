@@ -17,7 +17,9 @@ export default function ProductsDetal() {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}
+    >
       {/* < CardProducts {...Producto} key={1} item={Producto} /> */}
       <TarjetaP {...Producto} key={id} item={Producto} />
     </div>
