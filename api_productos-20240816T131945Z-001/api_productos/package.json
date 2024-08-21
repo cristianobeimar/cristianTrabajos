@@ -5,7 +5,7 @@
   "scripts": {
     "ProductosUnoaUno": "json-server --watch ProductosUnoaUno.json  --port 5813",
     "ProductosTodos": "json-server --watch ProductosTodos.json  --port 5814",
-    "start:all": "npm-run-all --parallel ProductosTodos  ProductosUnoaUno"
+    "dev": "npm-run-all --parallel ProductosTodos  ProductosUnoaUno"
   },
   "author": "",
   "license": "ISC",
