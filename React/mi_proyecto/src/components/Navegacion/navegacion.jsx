@@ -4,6 +4,7 @@ import "./navegacion.css";
 import Logo from "../../assets/img.rgb.png";
 import CarritoTarjeta from "../BerCarrito/carritoTarjeta";
 import Carrito from "../CarritoCompras/compras";
+import BuscadorComponent from "../Buscador/BuscadorComponent";
 
 export default function Navegacion({ longitudNum = 0 }) {
   const [activo, setActivo] = useState(false);
@@ -50,7 +51,8 @@ export default function Navegacion({ longitudNum = 0 }) {
 
   return (
     <>
-      <header className="header">
+      <header className="header">     
+      {/* <p id ="busca"><BuscadorComponent/></p> */}
         <img className="logo" src={Logo} alt="" />
         <nav id="nav" className="nav">
           <div className="nav--typeProducts">

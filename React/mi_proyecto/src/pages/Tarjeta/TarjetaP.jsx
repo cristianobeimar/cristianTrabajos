@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Carrito from "../../components/CarritoCompras/compras";
-import "./Ruta.css";
+import "./Tarjetap.css";
 import Navegacion from "../../components/Navegacion/navegacion";
 import BuscadorComponent from "../../components/Buscador/BuscadorComponent";
 
-const CardProducts = ({
+const Products = ({
   image,
   title,
   description,
@@ -18,7 +18,6 @@ const CardProducts = ({
   peso,
   garantia,
   material,
-
   numeroCarrito,
   item,
   id,
@@ -28,30 +27,26 @@ const CardProducts = ({
   const priceBefore = validPrice + validPrice / 2;
   return (
     <>
-      
       <div className="principal">
         <Navegacion />
         <div className="buscar">
-          <BuscadorComponent datos={[]} />
-        </div>
-        <div className="title">
           <h3 className="titulo">Total Market</h3>
+          <BuscadorComponent datos={[]} />
         </div>
         <div className="conten_product_view">
           <img className="image_product_view" src={image} alt={"superhero"} />
 
           <div className="datos_product_view">
             <div className="row no-gutters">
-              <h4 className="card-title">{marca}</h4>
+              <h4 className="card-title">
+                <b>Marca: </b>
+                {marca}
+              </h4>
               <h4 className="card-title">{title}</h4>
-              <p className="card-text">{description}</p>
-              <p className="card-text">{inf_opcional}</p>
-              <p className="card-text">{origen}</p>
-              <p className="card-text">{color}</p>
-              <p className="card-text">{dimensiones}</p>
-              <p className="card-text">{peso}</p>
-              <p className="card-text">{garantia}</p>
-              <p className="card-text">{material}</p>
+              <p className="card-text">
+                <b>Descripcion: </b>
+                {description}
+              </p>
               <div className="price_producto">
                 <p className="price">
                   ${validPrice.toFixed(2)}{" "}
@@ -60,15 +55,43 @@ const CardProducts = ({
                   </span>{" "}
                 </p>
               </div>
+              <Carrito numeroCarrito={numeroCarrito} item={item} />
             </div>
           </div>
-
-          {/* <div className="">
-        <Carrito numeroCarrito={numeroCarrito} item={item} />
-        </div> */}
+          <div className="detalles">
+            <h4>caracteristicas del producto</h4>
+            <p className="card-text">
+              <b>Inf adicional: </b>
+              {inf_opcional}
+            </p>
+            <p className="card-text">
+              <b>Origen: </b>
+              {origen}
+            </p>
+            <p className="card-text">
+              <b>Color: </b>
+              {color}
+            </p>
+            <p className="card-text">
+              <b>Dimenciones: </b>
+              {dimensiones}
+            </p>
+            <p className="card-text">
+              <b>Peso: </b>
+              {peso}
+            </p>
+            <p className="card-text">
+              <b>Garantia: </b>
+              {garantia}
+            </p>
+            <p className="card-text">
+              <b>Material: </b>
+              {material}
+            </p>
+          </div>
         </div>{" "}
       </div>
     </>
   );
 };
-export default CardProducts;
+export default Products;

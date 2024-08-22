@@ -6,6 +6,7 @@ import Navegacion from "./components/Navegacion/navegacion";
 import CardProducts from "./components/CardProducts/CardProducts";
 import Buscador from "./components/Buscador/BuscadorComponent";
 import { useContext } from "react";
+import BuscadorComponent from "./components/Buscador/BuscadorComponent";
 // import {Formulario} from "./components";
 
 function App() {
@@ -70,11 +71,11 @@ function App() {
   return (
     
     <div className="principal">
-      
       <Navegacion longitudNum={longitudNum} />
       <div className="buscar">
         <h3 id= "titulo">Total Market</h3>
-        <Buscador datos={productos} />
+       <BuscadorComponent datos={productos} /> 
+       
       </div>
 
 

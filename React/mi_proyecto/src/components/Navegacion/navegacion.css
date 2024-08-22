@@ -23,12 +23,13 @@
 
 .header {
   position: sticky;
-  top: 0;
+  top: 0%;
   background-color: #000000e0;
   display: flex;
   justify-content: space-around;
-  padding: 20px;
+  padding: 30px;
   z-index: 1000;
+  height: 7rem;
 }
 
 .header button {
@@ -134,4 +135,3 @@
     margin: 12px 0px;
   }
 }
-
