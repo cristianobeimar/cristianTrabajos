@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CardProducts from "../../components/CardProducts/CardProducts";
 import TarjetaP from "../Tarjeta/TarjetaP";
+import Inicio from "../inicioPagina/Inicio";
 
 export default function ProductsDetal() {
   const { id } = useParams();
@@ -20,6 +21,7 @@ export default function ProductsDetal() {
     <div style={{ display: "flex", justifyContent: "center" }}>
       {/* < CardProducts {...Producto} key={1} item={Producto} /> */}
       <TarjetaP {...Producto} key={id} item={Producto} />
+      {/* <Inicio/> */}
     </div>
   );
 }

@@ -39,15 +39,15 @@ export const LoginUsuario = () => {
   const crearUsuario = async (e) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, contraseña);
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(auth, email, contraseña);
       console.log("se creo el usuARIO");
-      if (Usuario) {
+      const user = UsuarioCredenciales.user
         await fetch("http://localhost:3000/usuarios", {
           method: "POST",
           headers: { "content-Type": "aplication/json" },
           body: JSON.stringify({ correo: email, id_usuario: Usuario.uid }),
         });
-      }
+    
     } catch (error) {
       console.log(error);
     }

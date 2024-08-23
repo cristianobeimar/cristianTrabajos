@@ -7,6 +7,7 @@ import CardProducts from "./components/CardProducts/CardProducts";
 import Buscador from "./components/Buscador/BuscadorComponent";
 import { useContext } from "react";
 import BuscadorComponent from "./components/Buscador/BuscadorComponent";
+import Inicio from "./pages/inicioPagina/Inicio";
 // import {Formulario} from "./components";
 
 function App() {
@@ -69,34 +70,20 @@ function App() {
   };
 
   return (
-    
     <div className="principal">
       <Navegacion longitudNum={longitudNum} />
       <div className="buscar">
-        <h3 id= "titulo">Total Market</h3>
-       <BuscadorComponent datos={productos} /> 
-       
+        <h3 id="titulo">Total Market</h3>
+        <BuscadorComponent datos={productos} />
+      </div>
+      <div>
+        <Inicio />
       </div>
 
-
-      <h2 id="joyas">Joyas</h2>
-      <div className="content">
-        {joyas.map((e, i) => {
-          return (
-            <CardProducts
-              numeroCarrito={numeroCarrito}
-              {...e}
-              key={i}
-              item={e}
-            />
-          );
-        })}
-      </div>
-
-      <section id="electronica">
-        <h2>Articulos electronicos</h2>
+      <>
+        <h2 id="joyas">Joyas</h2>
         <div className="content">
-          {electrodomésticos.map((e, i) => {
+          {joyas.map((e, i) => {
             return (
               <CardProducts
                 numeroCarrito={numeroCarrito}
@@ -107,39 +94,55 @@ function App() {
             );
           })}
         </div>
-      </section>
 
-      <section id="ropa_hombre">
-        <h2>Ropa hombre</h2>
-        <div className="content">
-          {ropaHombre.map((e, i) => {
-            return (
-              <CardProducts
-                numeroCarrito={numeroCarrito}
-                {...e}
-                key={i}
-                item={e}
-              />
-            );
-          })}
-        </div>
-      </section>
+        <section id="electronica">
+          <h2>Articulos electronicos</h2>
+          <div className="content">
+            {electrodomésticos.map((e, i) => {
+              return (
+                <CardProducts
+                  numeroCarrito={numeroCarrito}
+                  {...e}
+                  key={i}
+                  item={e}
+                />
+              );
+            })}
+          </div>
+        </section>
 
-      <section id="ropa_mujer">
-        <h2>Ropa Mujer</h2>
-        <div className="content">
-          {ropaMujer.map((e, i) => {
-            return (
-              <CardProducts
-                numeroCarrito={numeroCarrito}
-                {...e}
-                key={i}
-                item={e}
-              />
-            );
-          })}
-        </div>
-      </section>
+        <section id="ropa_hombre">
+          <h2>Ropa hombre</h2>
+          <div className="content">
+            {ropaHombre.map((e, i) => {
+              return (
+                <CardProducts
+                  numeroCarrito={numeroCarrito}
+                  {...e}
+                  key={i}
+                  item={e}
+                />
+              );
+            })}
+          </div>
+        </section>
+
+        <section id="ropa_mujer">
+          <h2>Ropa Mujer</h2>
+          <div className="content">
+            {ropaMujer.map((e, i) => {
+              return (
+                <CardProducts
+                  numeroCarrito={numeroCarrito}
+                  {...e}
+                  key={i}
+                  item={e}
+                />
+              );
+            })}
+          </div>
+        </section>
+      </>
     </div>
   );
 }

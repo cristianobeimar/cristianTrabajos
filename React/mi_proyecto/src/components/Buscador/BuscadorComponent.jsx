@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import "./Buscador.css"
 export default function BuscadorComponent({ datos }) {
   const [busqueda, setBusqueda] = useState("");
   const [productosFiltrados, setproductosFiltrados] = useState([]);
@@ -16,7 +16,7 @@ export default function BuscadorComponent({ datos }) {
 
   return (
     <div>
-      <input
+      <input className="input"
         type="text"
         placeholder="search products..."
         value={busqueda}
