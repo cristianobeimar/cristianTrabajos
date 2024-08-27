@@ -59,7 +59,7 @@ const CarritoTarjeta = ({
   };
 
   return (
-    <>
+    <div className="prin_targ_cart">
       <div className="targ">
         <button
           className="delete"
@@ -78,9 +78,9 @@ const CarritoTarjeta = ({
         <div className="product-data">
           <div className="row no-gutters">
             <h4 className="card-title">{title}</h4>
-            <p className="card-text">
+            {/* <p className="card-text">
               <small className="text-muted">{description}</small>
-            </p>
+            </p> */}
             <div className="price_producto">
               <p className="precio">
                 ${price}{" "}
@@ -91,7 +91,7 @@ const CarritoTarjeta = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 export default CarritoTarjeta;

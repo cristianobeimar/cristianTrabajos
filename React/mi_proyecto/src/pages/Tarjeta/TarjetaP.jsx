@@ -4,7 +4,7 @@ import Carrito from "../../components/CarritoCompras/compras";
 import "./Tarjetap.css";
 import Navegacion from "../../components/Navegacion/navegacion";
 import BuscadorComponent from "../../components/Buscador/BuscadorComponent";
-
+import Footer from "../../components/Footer/Footer";
 const Products = ({
   image,
   title,
@@ -30,7 +30,6 @@ const Products = ({
       <div className="principal">
         <Navegacion />
         <div className="buscar">
-          <h3 className="titulo">Total Market</h3>
           <BuscadorComponent datos={[]} />
         </div>
         <div className="conten_product_view">
@@ -55,7 +54,10 @@ const Products = ({
                   </span>{" "}
                 </p>
               </div>
-              <Carrito numeroCarrito={numeroCarrito} item={item} />
+              <div className="butons_productos">
+              <Carrito numeroCarrito={numeroCarrito} item={item} className="agr_Carrito"/>
+              <button className="comprar_product">comprar</button>
+              </div>
             </div>
           </div>
           <div className="detalles">
@@ -90,6 +92,7 @@ const Products = ({
             </p>
           </div>
         </div>{" "}
+       <Footer/>
       </div>
     </>
   );

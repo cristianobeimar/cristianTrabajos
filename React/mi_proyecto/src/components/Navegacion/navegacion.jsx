@@ -5,8 +5,10 @@ import Logo from "../../assets/img.rgb.png";
 import CarritoTarjeta from "../BerCarrito/carritoTarjeta";
 import Carrito from "../CarritoCompras/compras";
 import BuscadorComponent from "../Buscador/BuscadorComponent";
+import { useNavigate } from "react-router-dom";
+import Inicio from "../../pages/inicioPagina/Inicio";
 
-export default function Navegacion({ longitudNum = 0 }) {
+export default function Navegacion({ longitudNum = 0, setactivo }) {
   const [activo, setActivo] = useState(false);
   const [productosCarrito, setProductosCarrito] = useState([]);
 
@@ -30,7 +32,10 @@ export default function Navegacion({ longitudNum = 0 }) {
 
     // Cleanup
     return () => {
-      window.removeEventListener("carritoActualizado", handleCarritoActualizado);
+      window.removeEventListener(
+        "carritoActualizado",
+        handleCarritoActualizado
+      );
     };
   }, []);
 
@@ -49,17 +54,34 @@ export default function Navegacion({ longitudNum = 0 }) {
     }
   };
 
+  const navigate = useNavigate();
   return (
     <>
-      <header className="header">     
-      {/* <p id ="busca"><BuscadorComponent/></p> */}
+      <header className="header">
+        {/* <p id ="busca"><BuscadorComponent/></p> */}
         <img className="logo" src={Logo} alt="" />
+        <div>
+          <h3
+            style={{
+              fontSize: "30px",
+              color: "#fff",
+              padding: "0",
+              margin: "0",
+              marginLeft: "10px",
+            }}
+            id="titulo"
+          >
+            Total Market
+          </h3>
+        </div>
         <nav id="nav" className="nav">
           <div className="nav--typeProducts">
-            <a href="#ropa_hombre">Ropa Hombre</a>
-            <a href="#ropa_mujer">Ropa Mujer</a>
-            <a href="#electronica">Articulos tecnologicos</a>
-            <a href="#joyas">Joyas</a>
+            <a onClick={() => navigate("/ropa-hombre")}>Ropa Hombre</a>
+            <a onClick={() => navigate("/ropa-mujer")}>Ropa Mujer</a>
+            <a onClick={() => navigate("/Articulos-electronicos")}>
+              Articulos tecnologicos
+            </a>
+            <a onClick={() => navigate("/joyas")}>Joyas</a>
           </div>
           <FormLogin />
           <button
@@ -79,6 +101,20 @@ export default function Navegacion({ longitudNum = 0 }) {
               {productosCarrito.length}
             </p>
           </button>
+          <button onClick={() => navigate("/Inicio")} className="house">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-house-fill"
+              viewBox="0 0 16 16"
+            >
+              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293z" />
+              <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293z" />
+            </svg>
+          </button>
+
           {activo && productosCarrito.length >= 1 && (
             <div className="mascara_Carrito">
               {productosCarrito.map((item, i) => (

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import "./Compras.css"
 
 export const agregarCarrito = (item, cantidadPro) => {
   const productosGuardados =
@@ -55,7 +56,7 @@ export const Carrito = ({ item, numeroCarrito = () => {} }) => {
     <>
     
       <button
-        className=""
+        className="agregar"
         onClick={() => {
           agregarCarrito(item);
           numeroCarrito();

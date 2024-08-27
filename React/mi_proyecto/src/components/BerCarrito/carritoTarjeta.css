@@ -1,3 +1,7 @@
+.prin_targ_cart{
+  display: flex;
+  flex-direction: column;
+}
 .targ {
   display: flex;
   flex-direction: column;

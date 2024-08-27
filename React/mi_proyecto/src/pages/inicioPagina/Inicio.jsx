@@ -1,49 +1,53 @@
 import React, { useEffect, useState } from "react";
 import "./Inicio.css";
+import Footer from "../../components/Footer/Footer";
+import Navegacion from "../../components/Navegacion/navegacion";
+
 
 const Inicio = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [indiseActual, setIndiceActual] = useState(0);
 
   useEffect(() => {
-    const totalSlides = document.querySelectorAll(".carousel-item").length;
+    const totalDiapositivas = document.querySelectorAll(".carousel-item").length;
 
-    function showNextSlide() {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
+    function MostrarSigiente() {
+      setIndiceActual((indiceAnterior) => (indiceAnterior + 1) % totalDiapositivas);
     }
 
-    function showPrevSlide() {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + totalSlides) % totalSlides);
+    function MostrarAnterior() {
+      setIndiceActual((indiceAnterior) => (indiceAnterior - 1 + totalDiapositivas) % totalDiapositivas);
     }
 
-    const nextButton = document.querySelector(".carousel-control-next");
-    const prevButton = document.querySelector(".carousel-control-prev");
+    const ButtonSigiente = document.querySelector(".carousel-control-next");
+    const ButtonAnterior = document.querySelector(".carousel-control-prev");
 
-    nextButton.addEventListener("click", showNextSlide);
-    prevButton.addEventListener("click", showPrevSlide);
+    ButtonSigiente.addEventListener("click", MostrarSigiente);
+    ButtonAnterior.addEventListener("click", MostrarAnterior);
 
-    const interval = setInterval(showNextSlide, 6000); // Cambia cada 6 segundos
+    const interval = setInterval(MostrarSigiente, 6000); // Cambia cada 6 segundos
 
     return () => {
       clearInterval(interval);
-      nextButton.removeEventListener("click", showNextSlide);
-      prevButton.removeEventListener("click", showPrevSlide);
+      ButtonSigiente.removeEventListener("click", MostrarSigiente);
+      ButtonAnterior.removeEventListener("click", MostrarAnterior);
     };
   }, []);
 
   useEffect(() => {
     const indicators = document.querySelectorAll(".indicator-button");
     indicators.forEach((indicator, i) => {
-      indicator.classList.toggle("active", i === currentIndex);
+      indicator.classList.toggle("active", i === indiseActual);
     });
-  }, [currentIndex]);
+  }, [indiseActual]);
 
   return (
     <>
+    <Navegacion/>
       <div className="carousel">
-        <div className="carousel-wrapper" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+        <div className="carousel-wrapper" style={{ transform: `translateX(-${indiseActual * 100}%)` }}>
           <div className="carousel-item">
             <img
-              src="https://img.freepik.com/foto-gratis/rebajas-descuento-especial-auriculares_23-2150040376.jpg"
+              src="https://www.coomultrasan.com.co/file/general/Envio_gratis_LG_2024_Desktop.jpg"
               className="carousel-image"
               alt="Slide 1"
             />
@@ -57,7 +61,7 @@ const Inicio = () => {
           </div>
           <div className="carousel-item">
             <img
-              src="https://www.juancmejia.com/wp-content/uploads/2018/05/Promociones-y-descuentos-en-el-comercio-electro%CC%81nico.jpg"
+              src="https://i.ytimg.com/vi/ZXb6DRrTF8Q/maxresdefault.jpg"
               className="carousel-image"
               alt="Slide 3"
             />
@@ -84,35 +88,35 @@ const Inicio = () => {
             className="indicator-button active"
             aria-current="true"
             aria-label="Slide 1"
-            onClick={() => setCurrentIndex(0)}
+            onClick={() => setIndiceActual(0)}
           ></button>
           <button
             type="button"
             className="indicator-button"
             aria-current="false"
             aria-label="Slide 2"
-            onClick={() => setCurrentIndex(1)}
+            onClick={() => setIndiceActual(1)}
           ></button>
           <button
             type="button"
             className="indicator-button"
             aria-current="false"
             aria-label="Slide 3"
-            onClick={() => setCurrentIndex(2)}
+            onClick={() => setIndiceActual(2)}
           ></button>
           <button
             type="button"
             className="indicator-button"
             aria-current="false"
             aria-label="Slide 4"
-            onClick={() => setCurrentIndex(3)}
+            onClick={() => setIndiceActual(3)}
           ></button>
           <button
             type="button"
             className="indicator-button"
             aria-current="false"
             aria-label="Slide 5"
-            onClick={() => setCurrentIndex(4)}
+            onClick={() => setIndiceActual(4)}
           ></button>
         </div>
 
@@ -157,7 +161,22 @@ const Inicio = () => {
           </span>
         </button>
       </div>
+    <h1 id ="title" >Ofertas del dia</h1>
+    <div className="descrip"> 
+    <p>tecnologia</p>
+    <p>Ropa para dama</p>
+    <p>Joyeria</p>
+    <p>Ropa para caballero</p>
+    </div>
+   <div className="ofertas">
+    <img className= "ima" src="https://down-co.img.susercontent.com/file/sg-11134201-23010-wz4g2uguh8lvad_tn.webp" alt="" />
+    <img className= "ima" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDvbdZ3X8LrivmtbZU3h70IzVYP3idZ47mjg&s" alt="" />
+    <img className= "ima" src="https://ae01.alicdn.com/kf/S329bda889049464499d53798f489c06bG.jpg_640x640Q90.jpg_.webp" alt="" />
+    <img className= "ima" src="https://res.cloudinary.com/pozters/image/upload/w_700/v1531320146/prod_uploads/e0VJZPadwynD2b7" alt="" />
+   </div>
+  <Footer/>
     </>
+    
   );
 };
 

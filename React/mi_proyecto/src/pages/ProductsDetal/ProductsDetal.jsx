@@ -7,6 +7,7 @@ import Inicio from "../inicioPagina/Inicio";
 export default function ProductsDetal() {
   const { id } = useParams();
   const [Producto, setProducto] = useState();
+
   const obtenerProducto = async () => {
     const resp = await fetch(`http://localhost:5813/${id}`);
     const products = await resp.json();
