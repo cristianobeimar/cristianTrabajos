@@ -8,8 +8,9 @@
    
   }
   .agr_Carrito{
-    background-color: chartreuse;
+    background-color: rgb(255, 153, 0);
   }
+
   .conten_product_view {
     display: flex;
     flex-wrap: wrap;

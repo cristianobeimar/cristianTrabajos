@@ -7,6 +7,7 @@ import Footer from '../../../components/Footer/Footer';
 export default function Men_clothing() {
   const [productos, setproductos] = useState([]);
   const [ropaHombre, setRopaHombre] = useState([]);
+  const [longitudNum, setlongitudNum]=  useState([])
 
   const funcionProducts = async () => {
     const productos = await Getproductos();

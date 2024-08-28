@@ -42,7 +42,7 @@ const Inicio = () => {
 
   return (
     <>
-    <Navegacion/>
+    {/* <Navegacion/> */}
       <div className="carousel">
         <div className="carousel-wrapper" style={{ transform: `translateX(-${indiseActual * 100}%)` }}>
           <div className="carousel-item">

@@ -14,13 +14,13 @@ export default function Rutas() {
         <Route>
           <Route path="/" element={<App />} />
           <Route path="/producto/:id" element={<ProductsDetal />} />
-          <Route path="/product/:id" element={<ProductsDetal />} />
+          {/* <Route path="/product/:id" element={<ProductsDetal />} /> */}
           <Route path="/Articulos-electronicos" element={<Electronics />} />
           <Route path="/joyas" element={<Jewelery />} />
           <Route path="/Ropa-hombre" element={<Men_clothing />} />
           <Route path="/Ropa-mujer" element={<Women_clothing />} />
           <Route path="/Navegacion" element={<Navegacion />} />
-          <Route path="/Inicio" element={<Inicio />} />
+          {/* <Route path="/Inicio" element={<Inicio />} /> */}
         </Route>{" "}
       </Routes>
     </BrowserRouter>

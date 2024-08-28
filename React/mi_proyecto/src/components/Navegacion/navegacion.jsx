@@ -11,6 +11,7 @@ import Inicio from "../../pages/inicioPagina/Inicio";
 export default function Navegacion({ longitudNum = 0, setactivo }) {
   const [activo, setActivo] = useState(false);
   const [productosCarrito, setProductosCarrito] = useState([]);
+  const [open, setOpen] = useState(false)
 
   const productosCarritos = JSON.parse(
     localStorage.getItem("productosGuardados")
@@ -75,14 +76,14 @@ export default function Navegacion({ longitudNum = 0, setactivo }) {
           </h3>
         </div>
         <nav id="nav" className="nav">
-          <div className="nav--typeProducts">
+          {open && <div className="nav--typeProducts container_menu_responsive">
             <a onClick={() => navigate("/ropa-hombre")}>Ropa Hombre</a>
             <a onClick={() => navigate("/ropa-mujer")}>Ropa Mujer</a>
             <a onClick={() => navigate("/Articulos-electronicos")}>
               Articulos tecnologicos
             </a>
             <a onClick={() => navigate("/joyas")}>Joyas</a>
-          </div>
+          </div>}
           <FormLogin />
           <button
             onClick={() => (productosCarrito.length > 0 ? toggleModal() : "")}
@@ -101,7 +102,7 @@ export default function Navegacion({ longitudNum = 0, setactivo }) {
               {productosCarrito.length}
             </p>
           </button>
-          <button onClick={() => navigate("/Inicio")} className="house">
+          <button onClick={() => navigate("/")} className="house">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -129,7 +130,7 @@ export default function Navegacion({ longitudNum = 0, setactivo }) {
               ))}
             </div>
           )}
-          <button className="class-menu-btn" id="menu-btn">
+          <button onClick={()=> setOpen(! open)} className="class-menu-btn" id="menu-btn">
             &#9776;
           </button>
         </nav>

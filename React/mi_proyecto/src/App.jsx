@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App1.css";
 import "./index.css";
 import Navegacion from "./components/Navegacion/navegacion";
-
 import { useContext } from "react";
 import BuscadorComponent from "./components/Buscador/BuscadorComponent";
 import Inicio from "./pages/inicioPagina/Inicio";

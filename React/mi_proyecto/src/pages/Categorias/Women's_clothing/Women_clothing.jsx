@@ -7,6 +7,7 @@ import Footer from '../../../components/Footer/Footer';
 export default function Women_clothing () {
     const [productos, setproductos] = useState([]);
     const [ropaMujer, setRopaMujer] = useState([]);
+    const [longitudNum, setlongitudNum] = useState([])
 
     const funcionProducts = async () => {
         const productos = await Getproductos();
@@ -28,6 +29,7 @@ export default function Women_clothing () {
         const num = JSON.parse(localStorage.getItem("productosGuardados"));
         setlongitudNum(num.length);
       };
+
   return (
     <div>
       <Navegacion/>
