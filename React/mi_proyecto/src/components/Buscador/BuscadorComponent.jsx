@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Buscador.css"
+
 export default function BuscadorComponent({ datos }) {
   const [busqueda, setBusqueda] = useState("");
   const [productosFiltrados, setproductosFiltrados] = useState([]);

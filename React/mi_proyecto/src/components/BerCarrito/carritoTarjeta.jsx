@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import "./carritoTarjeta.css";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
-import { agregarCarrito, modificarCarrito } from "../CarritoCompras/compras";
+import { modificarCarrito } from "../CarritoCompras/compras";
 
 const CarritoTarjeta = ({
   title,
   image,
-  description,
   price,
   item,
   cantidad,
@@ -29,7 +28,7 @@ const CarritoTarjeta = ({
   }, []);
 
   const eliminarProducto = (id) => {
-    console.log("haciendo eliminando", id);
+    console.log("haciendo eliminacion", id);
     const productosGuardados =
       JSON.parse(localStorage.getItem("productosGuardados")) || [];
     const productosActualizados = productosGuardados.filter(

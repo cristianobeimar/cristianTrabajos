@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import "./Compras.css"
 
-export const agregarCarrito = (item, cantidadPro) => {
+export const agregarCarrito = ({item, cantidadPro}) => {
   const productosGuardados =
     JSON.parse(localStorage.getItem("productosGuardados")) || [];
 

@@ -5,7 +5,7 @@ import Navegacion from "./components/Navegacion/navegacion";
 import { useContext } from "react";
 import BuscadorComponent from "./components/Buscador/BuscadorComponent";
 import Inicio from "./pages/inicioPagina/Inicio";
-// import {Formulario} from "./components";
+
 
 function App() {
   const [productos, setproductos] = useState([]);

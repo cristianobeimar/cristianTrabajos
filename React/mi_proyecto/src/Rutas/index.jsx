@@ -6,7 +6,7 @@ import Men_clothing from "../pages/Categorias/Men's_clothing/Men's_clothing";
 import Electronics from "../pages/Categorias/Electronics/Electronics";
 import Women_clothing from "../pages/Categorias/Women's_clothing/Women_clothing";
 import Navegacion from "../components/Navegacion/navegacion";
-import Inicio from "../pages/inicioPagina/Inicio";
+
 export default function Rutas() {
   return (
     <BrowserRouter>

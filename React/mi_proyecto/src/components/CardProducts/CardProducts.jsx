@@ -7,13 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 const CardProducts = ({
   image,
   title,
-  description,
   price,
   numeroCarrito,
   item,
   id,
 }) => {
-  const { CardProducts, addToCart, removeFromCart, clearCart, decrementCart } =
+  const { } =
     useContext(CartContext);
   const navigate = useNavigate();
   const navegacion = () => {

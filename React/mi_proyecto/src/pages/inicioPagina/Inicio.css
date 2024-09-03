@@ -1,7 +1,8 @@
 /* Estilos Generales */
 .carousel,
 .carousel-item {
-  max-width: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Carrusel */
@@ -83,14 +84,13 @@
 /* Sección Ofertas */
 .ofertas {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  min-width: 400px;
-  max-width: 100%;
+  width: 100%;
   box-shadow: 0 2px 4px rgba(12, 12, 12, 0.5);
   background-color: rgb(255, 255, 255);
   color: #0c0c0c;
-  text-align: center;
   gap: 40px;
   padding: 10px;;
 }
@@ -141,7 +141,6 @@ h1 {
     width: 200px;
   }
 
-  
 }
 
 @media (max-width: 480px) {

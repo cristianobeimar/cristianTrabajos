@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Inicio.css";
 import Footer from "../../components/Footer/Footer";
 import Navegacion from "../../components/Navegacion/navegacion";
-
+import Products_G from "../ProductG/Products_G";
 
 const Inicio = () => {
   const [indiseActual, setIndiceActual] = useState(0);
@@ -161,7 +161,8 @@ const Inicio = () => {
           </span>
         </button>
       </div>
-    <h1 id ="title" >Ofertas del dia</h1>
+    <h1 id ="title">Productos que te puedan interresar</h1>
+    <Products_G/>
     <div className="descrip"> 
     <p>tecnologia</p>
     <p>Ropa para dama</p>
