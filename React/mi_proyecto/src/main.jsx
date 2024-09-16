@@ -7,7 +7,7 @@ import Rutas from "./Rutas/index.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CartProvider>
-    <Rutas/>
+      <Rutas />
     </CartProvider>
   </React.StrictMode>
 );

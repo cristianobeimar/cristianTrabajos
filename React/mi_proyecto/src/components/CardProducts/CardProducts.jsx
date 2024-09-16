@@ -1,7 +1,5 @@
 import Carrito from "../CarritoCompras/compras";
 import "./CardProducto.css";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
 
 const CardProducts = ({
@@ -12,8 +10,7 @@ const CardProducts = ({
   item,
   id,
 }) => {
-  const { } =
-    useContext(CartContext);
+ 
   const navigate = useNavigate();
   const navegacion = () => {
     navigate(`/producto/${id - 1}`);
@@ -34,7 +31,6 @@ const CardProducts = ({
         <div className="datos-producto">
           <div className="row no-gutters">
             <h4 className="card-title">{title}</h4>
-            {/* <p className="card-text">{description}</p> */}
             <div className="price_producto">
               <p className="price">
                 ${validPrice.toFixed(2)}{" "}

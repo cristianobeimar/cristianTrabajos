@@ -57,7 +57,7 @@ export default function FormLogin() {
             setactivo(true);
           }}
         >
-          iniciar sesion
+          crear cuenta
         </button>
       )}
       {activo && (

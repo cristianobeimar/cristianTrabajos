@@ -3,6 +3,7 @@ import CardProducts from "../../../components/CardProducts/CardProducts";
 import React, { useEffect, useState } from "react";
 import Navegacion from "../../../components/Navegacion/navegacion";
 import Footer from "../../../components/Footer/Footer";
+
 export default function Jewelery() {
     const [productos, setproductos] = useState([]);
     const [joyas, setJoyas] = useState([]);

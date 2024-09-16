@@ -6,6 +6,8 @@ import Men_clothing from "../pages/Categorias/Men's_clothing/Men's_clothing";
 import Electronics from "../pages/Categorias/Electronics/Electronics";
 import Women_clothing from "../pages/Categorias/Women's_clothing/Women_clothing";
 import Navegacion from "../components/Navegacion/navegacion";
+import CardProducts from "../components/CardProducts/CardProducts";
+import { LoginUsuario } from "../components/LoginUsuario/LoginUsuario";
 
 export default function Rutas() {
   return (
@@ -14,13 +16,13 @@ export default function Rutas() {
         <Route>
           <Route path="/" element={<App />} />
           <Route path="/producto/:id" element={<ProductsDetal />} />
-          {/* <Route path="/product/:id" element={<ProductsDetal />} /> */}
           <Route path="/Articulos-electronicos" element={<Electronics />} />
           <Route path="/joyas" element={<Jewelery />} />
           <Route path="/Ropa-hombre" element={<Men_clothing />} />
           <Route path="/Ropa-mujer" element={<Women_clothing />} />
           <Route path="/Navegacion" element={<Navegacion />} />
-          {/* <Route path="/Inicio" element={<Inicio />} /> */}
+          <Route path="/CarProduct/:id" element={<CardProducts />} />
+          <Route path="/login" element={<LoginUsuario />} />
         </Route>{" "}
       </Routes>
     </BrowserRouter>

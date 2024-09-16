@@ -8,53 +8,59 @@ import { auth } from "../../fireBase/credenciales";
 import "./usuario.css";
 
 export const LoginUsuario = () => {
-  const [activado, setactivado] = useState(false);
+  const [Registrado, setRegistrado] = useState(false);
   const [email, setemail] = useState("");
   const [contraseña, setcontrasena] = useState("");
-  const [Registrado, setRegistrado] = useState(false);
   const [Usuario, setUsuario] = useState(null);
+
+  // Función para registrar usuario
   const RegistrarUsuario = async (e) => {
     e.preventDefault();
-    console.log(contraseña);
-    console.log(email);
     try {
-      console.log(contraseña);
-      console.log(email);
       await signInWithEmailAndPassword(auth, email, contraseña);
     } catch (error) {
       console.log(error);
     }
   };
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUsuario(user);
-        console.log("hay usuario");
-      } else {
-        console.log("no hay usuario");
-      }
-    });
-  }, []);
 
+  // createUserWithEmailAndPassword esta Función es de fireBase el cual me permite crear nuevo usuario
   const crearUsuario = async (e) => {
     e.preventDefault();
     try {
-      const UsuarioCredenciales = await createUserWithEmailAndPassword(auth, email, contraseña);
-      console.log("se creo el usuARIO");
-      const user = UsuarioCredenciales.user
-        await fetch("http://localhost:3000/usuarios", {
-          method: "POST",
-          headers: { "content-Type": "aplication/json" },
-          body: JSON.stringify({ correo: email, id_usuario: Usuario.uid }),
-        });
-    
+      const UsuarioCredenciales = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        contraseña
+      );
+      console.log("Se creó el usuario");
+      const user = UsuarioCredenciales.user;
+
+      // Hacer fetch para guardar los datos del usuario en la base de datos
+      await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ correo: email, id_usuario: user.uid }),
+      });
     } catch (error) {
       console.log(error);
     }
   };
+
+  // onAuthStateChanged me sirve para realizar Verificación de si hay un usuario autenticado
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUsuario(user);
+        console.log("Hay usuario autenticado:", user.email);
+      } else {
+        setUsuario(null);
+        console.log("No hay usuario autenticado");
+      }
+    });
+  }, []);
+
   return (
     <>
-      <></>
       <form
         onSubmit={(e) => (Registrado ? RegistrarUsuario(e) : crearUsuario(e))}
       >
@@ -63,7 +69,7 @@ export const LoginUsuario = () => {
           value={email}
           type="email"
           onChange={(e) => setemail(e.target.value)}
-          placeholder="Email o numero de celular"
+          placeholder="Email o número de celular"
         />
         <input
           value={contraseña}
@@ -73,7 +79,7 @@ export const LoginUsuario = () => {
         />
 
         <button className="buut" type="submit">
-          {Registrado ? " Ingresar" : "Crear Cuenta "}
+          {Registrado ? "Ingresar" : "Crear Cuenta"}
         </button>
       </form>
       <button
@@ -83,8 +89,8 @@ export const LoginUsuario = () => {
         }}
       >
         {Registrado
-          ? "¿Aun no tienes Cuenta? Crea Una Aqui"
-          : "¿Ya tienes cuenta? Ingresa aqui"}
+          ? "¿Aún no tienes cuenta? Crea una aquí"
+          : "¿Ya tienes cuenta? Inicia sesión aquí"}
       </button>
     </>
   );

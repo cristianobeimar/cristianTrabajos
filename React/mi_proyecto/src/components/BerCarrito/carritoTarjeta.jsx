@@ -1,91 +1,71 @@
 import React, { useState, useEffect } from "react";
 import "./carritoTarjeta.css";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { modificarCarrito } from "../CarritoCompras/compras";
+import useCartContext from "../../context/CartProvider"; // Ajusta la ruta según sea necesario
 
-const CarritoTarjeta = ({
-  title,
-  image,
-  price,
-  item,
-  cantidad,
-  actualizarCarrito,
-}) => {
+const CarritoTarjeta = ({ title, image, price = 0, item, cantidad = 1 }) => {
   const [Cantidad, setCantidad] = useState(cantidad);
-
-  const [productos, setProductos] = useState([]);
+  const { decrementCart, removeFromCart, addToCart } = useCartContext();
 
   useEffect(() => {
     setCantidad(cantidad);
   }, [cantidad]);
 
-  useEffect(() => {
-    setCantidad(cantidad);
-    const productosGuardados =
-      JSON.parse(localStorage.getItem("productosGuardados")) || [];
-    setProductos(productosGuardados);
-  }, []);
-
   const eliminarProducto = (id) => {
-    console.log("haciendo eliminacion", id);
-    const productosGuardados =
-      JSON.parse(localStorage.getItem("productosGuardados")) || [];
-    const productosActualizados = productosGuardados.filter(
-      (producto) => producto.id !== id
-    );
-    actualizarCarrito(productosActualizados);
+    console.log("Haciendo eliminación", id);
+    removeFromCart({ id });
   };
 
-  const decrementCart = (id) => {
-    console.log("haciendo decremento");
+  const decrementCartHandler = (id) => {
+    console.log("Haciendo decremento");
+    const nuevaCantidad = Cantidad - 1;
+    setCantidad(nuevaCantidad);
 
-    const c = Cantidad - 1;
-    setCantidad(c);
-    modificarCarrito(item, c);
-    if (c === 0) {
+    if (nuevaCantidad === 0) {
       eliminarProducto(id);
     } else {
-      const productosGuardados =
-        JSON.parse(localStorage.getItem("productosGuardados")) || [];
-      const productosActualizados = productosGuardados.map((producto) =>
-        producto.id === id
-          ? { ...producto, cantidad: c }
-          : producto
-      );
-      actualizarCarrito(productosActualizados);
+      decrementCart({ id });
+    }
+  };
+
+  const incrementCartHandler = () => {
+    console.log("Haciendo incremento");
+    setCantidad(Cantidad + 1);
+    addToCart(item);
+  };
+
+  const handleDeleteClick = () => {
+    if (item && item.id) {
+      Cantidad <= 1 ? eliminarProducto(item.id) : decrementCartHandler(item.id);
+    } else {
+      console.error("Item no válido:", item);
     }
   };
 
   return (
     <div className="prin_targ_cart">
       <div className="targ">
-        <button
-          className="delete"
-          onClick={() =>
-            Cantidad <= 1
-              ? eliminarProducto(item.id)
-              : decrementCart(item.id)
-          }
-        >
-          eliminar
-        </button>
-        <div className="img">
-          <img src={image} className="img-card" alt={"superhero"} />
+        <div className="more-and-less">
+          <button className="delete" onClick={handleDeleteClick}>
+            -
+          </button>
+          <button className="increment" onClick={incrementCartHandler}>
+            +
+          </button>
         </div>
-        {/* datos-producto  */}
+        <div className="img">
+          <img src={image} className="img-card" alt="Producto" />
+        </div>
         <div className="product-data">
           <div className="row no-gutters">
             <h4 className="card-title">{title}</h4>
-            {/* <p className="card-text">
-              <small className="text-muted">{description}</small>
-            </p> */}
             <div className="price_producto">
               <p className="precio">
                 ${price}{" "}
-                <span className="price-before">{price + price / 2}</span>{" "}
+                <span className="price-before">
+                  ${(price + price / 2).toFixed(2)}
+                </span>{" "}
               </p>
-              <p className="buttons">Cantidad:{Cantidad}</p>
+              <p className="buttons">Cantidad: {Cantidad}</p>
             </div>
           </div>
         </div>
@@ -93,4 +73,5 @@ const CarritoTarjeta = ({
     </div>
   );
 };
+
 export default CarritoTarjeta;

@@ -1,50 +1,33 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Inicio.css";
 import Footer from "../../components/Footer/Footer";
-import Navegacion from "../../components/Navegacion/navegacion";
 import Products_G from "../ProductG/Products_G";
 
 const Inicio = () => {
-  const [indiseActual, setIndiceActual] = useState(0);
+  const [indiceActual, setIndiceActual] = useState(0); // Cambia indiseActual por indiceActual
+  const primero = useRef(null);
 
+  // Función para mostrar la diapositiva siguiente
+  const mostrarSiguiente = () => {
+    setIndiceActual((indiceAnterior) => indiceAnterior == 4 ? 0:(indiceAnterior + 1)); // 5 es el número de diapositivas
+  };
+
+  // Configuración del scroll hace que la imagen camvie cada 6 segundos
   useEffect(() => {
-    const totalDiapositivas = document.querySelectorAll(".carousel-item").length;
-
-    function MostrarSigiente() {
-      setIndiceActual((indiceAnterior) => (indiceAnterior + 1) % totalDiapositivas);
-    }
-
-    function MostrarAnterior() {
-      setIndiceActual((indiceAnterior) => (indiceAnterior - 1 + totalDiapositivas) % totalDiapositivas);
-    }
-
-    const ButtonSigiente = document.querySelector(".carousel-control-next");
-    const ButtonAnterior = document.querySelector(".carousel-control-prev");
-
-    ButtonSigiente.addEventListener("click", MostrarSigiente);
-    ButtonAnterior.addEventListener("click", MostrarAnterior);
-
-    const interval = setInterval(MostrarSigiente, 6000); // Cambia cada 6 segundos
+    primero.current = setInterval(mostrarSiguiente, 6000);
 
     return () => {
-      clearInterval(interval);
-      ButtonSigiente.removeEventListener("click", MostrarSigiente);
-      ButtonAnterior.removeEventListener("click", MostrarAnterior);
+      clearInterval(primero.current);
     };
   }, []);
 
-  useEffect(() => {
-    const indicators = document.querySelectorAll(".indicator-button");
-    indicators.forEach((indicator, i) => {
-      indicator.classList.toggle("active", i === indiseActual);
-    });
-  }, [indiseActual]);
-
   return (
     <>
-    {/* <Navegacion/> */}
       <div className="carousel">
-        <div className="carousel-wrapper" style={{ transform: `translateX(-${indiseActual * 100}%)` }}>
+        <div
+          className="carousel-wrapper"
+          style={{ transform: `translateX(-${indiceActual * 100}%)` }} // Usar indiceActual
+        >
           <div className="carousel-item">
             <img
               src="https://www.coomultrasan.com.co/file/general/Envio_gratis_LG_2024_Desktop.jpg"
@@ -83,44 +66,18 @@ const Inicio = () => {
         </div>
 
         <div className="carousel-indicators">
-          <button
-            type="button"
-            className="indicator-button active"
-            aria-current="true"
-            aria-label="Slide 1"
-            onClick={() => setIndiceActual(0)}
-          ></button>
-          <button
-            type="button"
-            className="indicator-button"
-            aria-current="false"
-            aria-label="Slide 2"
-            onClick={() => setIndiceActual(1)}
-          ></button>
-          <button
-            type="button"
-            className="indicator-button"
-            aria-current="false"
-            aria-label="Slide 3"
-            onClick={() => setIndiceActual(2)}
-          ></button>
-          <button
-            type="button"
-            className="indicator-button"
-            aria-current="false"
-            aria-label="Slide 4"
-            onClick={() => setIndiceActual(3)}
-          ></button>
-          <button
-            type="button"
-            className="indicator-button"
-            aria-current="false"
-            aria-label="Slide 5"
-            onClick={() => setIndiceActual(4)}
-          ></button>
+          {[...Array(5)].map((_, index) => (
+            <button
+              key={index}
+              type="button"
+              className={`indicator-button ${indiceActual === index ? "active" : ""}`}
+              aria-label={`Slide ${index + 1}`}
+              onClick={() => setIndiceActual(index)}
+            />
+          ))}
         </div>
 
-        <button type="button" className="carousel-control-prev">
+        <button type="button" className="carousel-control-prev" onClick={mostrarSiguiente}>
           <span className="carousel-control-icon">
             <svg
               className="carousel-control-svg"
@@ -140,7 +97,7 @@ const Inicio = () => {
             <span className="sr-only"></span>
           </span>
         </button>
-        <button type="button" className="carousel-control-next">
+        <button type="button" className="carousel-control-next" onClick={mostrarSiguiente}>
           <span className="carousel-control-icon">
             <svg
               className="carousel-control-svg"
@@ -161,23 +118,23 @@ const Inicio = () => {
           </span>
         </button>
       </div>
-    <h1 id ="title">Productos que te puedan interresar</h1>
-    <Products_G/>
-    <div className="descrip"> 
-    <p>tecnologia</p>
-    <p>Ropa para dama</p>
-    <p>Joyeria</p>
-    <p>Ropa para caballero</p>
-    </div>
-   <div className="ofertas">
-    <img className= "ima" src="https://down-co.img.susercontent.com/file/sg-11134201-23010-wz4g2uguh8lvad_tn.webp" alt="" />
-    <img className= "ima" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDvbdZ3X8LrivmtbZU3h70IzVYP3idZ47mjg&s" alt="" />
-    <img className= "ima" src="https://ae01.alicdn.com/kf/S329bda889049464499d53798f489c06bG.jpg_640x640Q90.jpg_.webp" alt="" />
-    <img className= "ima" src="https://res.cloudinary.com/pozters/image/upload/w_700/v1531320146/prod_uploads/e0VJZPadwynD2b7" alt="" />
-   </div>
-  <Footer/>
+      
+      <h1 id="title">Productos que te puedan interesar</h1>
+      <Products_G />
+      <div className="descrip">
+        <p>Tecnología</p>
+        <p>Ropa para dama</p>
+        <p>Joyería</p>
+        <p>Ropa para caballero</p>
+      </div>
+      <div className="ofertas">
+        <img className="ima" src="https://down-co.img.susercontent.com/file/sg-11134201-23010-wz4g2uguh8lvad_tn.webp" alt="Oferta 1" />
+        <img className="ima" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDvbdZ3X8LrivmtbZU3h70IzVYP3idZ47mjg&s" alt="Oferta 2" />
+        <img className="ima" src="https://ae01.alicdn.com/kf/S329bda889049464499d53798f489c06bG.jpg_640x640Q90.jpg_.webp" alt="Oferta 3" />
+        <img className="ima" src="https://res.cloudinary.com/pozters/image/upload/w_700/v1531320146/prod_uploads/e0VJZPadwynD2b7" alt="Oferta 4" />
+      </div>
+      <Footer />
     </>
-    
   );
 };
 

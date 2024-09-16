@@ -20,10 +20,13 @@
   text-align: center;
   z-index: 6;
 }
+.more_and_less{
+
+}
 .img-card {
-  width: 100px;
-  height: 60px;
-  border-radius: 10px;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
 }
 .img {
   display: flex;

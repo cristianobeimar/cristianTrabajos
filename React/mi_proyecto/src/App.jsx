@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./App1.css";
+import "./Rutas/App1.css"
 import "./index.css";
 import Navegacion from "./components/Navegacion/navegacion";
 import { useContext } from "react";

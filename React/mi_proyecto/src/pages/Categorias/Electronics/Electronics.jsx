@@ -7,7 +7,6 @@ import BuscadorComponent from "../../../components/Buscador/BuscadorComponent";
 
 export default function Electronics() {
   const [productos, setproductos] = useState([]);
-  const [longitudNum, setlongitudNum] = useState([]);
   const [electrodomésticos, setElectrodomésticos] = useState([]);
 
   const funcionProducts = async () => {
@@ -25,10 +24,6 @@ export default function Electronics() {
     funcionElectronics();
   }, [productos]);
 
-  const numeroCarrito = () => {
-    const num = JSON.parse(localStorage.getItem("productosGuardados"));
-    setlongitudNum(num.length);
-  };
   return (
     <div>
       <Navegacion />
@@ -39,7 +34,7 @@ export default function Electronics() {
           {electrodomésticos.map((e, i) => {
             return (
               <CardProducts
-                numeroCarrito={numeroCarrito}
+               
                 {...e}
                 key={i}
                 item={e}

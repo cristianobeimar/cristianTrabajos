@@ -1,21 +1,27 @@
-import { useState } from "react";
-import { CartContext } from "./CartContext";
+import { useContext, useState } from "react";
+import { createContext } from "react";
+
+export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(
+    JSON.parse(localStorage.getItem("cart")) ?? []
+  );
 
+  //esta funcion hace que agrege productos al carro
   const addToCart = (product) => {
-    setCart((prevState) => {
-      const existingProdut = prevState.find((item) => item.id === product.id);
-      if (existingProdut) {
-        return prevState.map((item) =>
+    const existingProdut = cart.find((item) => item.id === product.id);
+    // condición ? expr1 : expr2
+    const newProduct = existingProdut
+      ? cart.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
-        );
-      }
-      return [...prevState, { ...product, quantity: 1 }];
-    });
+        )
+      : [...cart, { ...product, quantity: 1 }];
+
+    localStorage.setItem("cart", JSON.stringify(newProduct));
+    setCart(newProduct);
   };
 
   const removeFromCart = (product) => {
@@ -54,3 +60,5 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+const useCartContext = () => useContext(CartContext);
+export default useCartContext;
