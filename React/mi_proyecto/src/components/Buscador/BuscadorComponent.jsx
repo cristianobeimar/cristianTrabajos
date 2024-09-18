@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./Buscador.css";
-
-
+import { useNavigate } from "react-router-dom";
 export default function BuscadorComponent() {
   const [busqueda, setBusqueda] = useState("");
   const [productosFiltrados, setproductosFiltrados] = useState([]);
   const [datos, setdatos] = useState([]);
 
+  
+  const navigate = useNavigate();
+  const getProducts = async () => {
+    fetch("http://localhost:5814/productos")
+    .then((res) => res.json())
+    .then((res) => setdatos(res));
+  };
   useEffect(() => {
     getProducts();
   }, [datos]);
-  
-  const getProducts = async () => {
-    fetch("http://localhost:5814/productos")
-      .then((res) => res.json())
-      .then((res) => setdatos(res));
-  };
 
   const buscadorInput = (e) => {
     console.log(datos);
@@ -41,7 +41,9 @@ export default function BuscadorComponent() {
           busqueda != "" &&
           productosFiltrados.map((e) => (
             <>
-              <li>{e.title}</li>
+              <li onClick={() => navigate(`/producto/${e.id - 1}`)}>
+                {e.title}
+              </li>
             </>
           ))}
       </ul>

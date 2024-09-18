@@ -5,6 +5,7 @@ import useCartContext from "../../context/CartProvider"; // Ajusta la ruta segú
 const CarritoTarjeta = ({ title, image, price = 0, item, cantidad = 1 }) => {
   const [Cantidad, setCantidad] = useState(cantidad);
   const { decrementCart, removeFromCart, addToCart } = useCartContext();
+ 
 
   useEffect(() => {
     setCantidad(cantidad);
@@ -42,15 +43,12 @@ const CarritoTarjeta = ({ title, image, price = 0, item, cantidad = 1 }) => {
   };
 
   return (
+   
     <div className="prin_targ_cart">
+
       <div className="targ">
         <div className="more-and-less">
-          <button className="delete" onClick={handleDeleteClick}>
-            -
-          </button>
-          <button className="increment" onClick={incrementCartHandler}>
-            +
-          </button>
+            
         </div>
         <div className="img">
           <img src={image} className="img-card" alt="Producto" />
@@ -67,6 +65,14 @@ const CarritoTarjeta = ({ title, image, price = 0, item, cantidad = 1 }) => {
               </p>
               <p className="buttons">Cantidad: {Cantidad}</p>
             </div>
+            <div className="botones">
+            <button className="delete" onClick={handleDeleteClick}>
+            -
+          </button>
+          <button className="increment" onClick={incrementCartHandler}>
+            +
+          </button>
+          </div>
           </div>
         </div>
       </div>

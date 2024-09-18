@@ -116,7 +116,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   gap: 20px;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: #f9f9f9;
 }
 .mensajeCompra{
@@ -189,13 +189,6 @@
 .agr_Carrito:hover, .comprar_product:hover {
   background-color: #1d3557;
 }
-/* 
-.detalles {
-  grid-area: detalles;
-  background-color: #f1faee;
-  padding: 15px;
-  border-radius: 8px;
-} */
 
 .detalles h4 {
   margin-bottom: 10px;
@@ -317,9 +310,4 @@
     grid-area: datos;
   }
 
-  /* .detalles {
-    grid-area: detalles;
-    justify-self: start;
-    align-self: start;
-  } */
 }

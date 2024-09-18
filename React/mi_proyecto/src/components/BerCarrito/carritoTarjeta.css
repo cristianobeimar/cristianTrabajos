@@ -20,9 +20,7 @@
   text-align: center;
   z-index: 6;
 }
-.more_and_less{
 
-}
 .img-card {
   width: 50%;
   height: 50%;
@@ -58,6 +56,16 @@
 }
 .targ button {
   background-color: rgb(223, 247, 8);
+  height: 35px;
+  
+}
+.botones{
+  display: flex;
+  align-items: center; /* Alinea los botones verticalmente en el centro */
+  justify-content: center; /* Alinea los botones horizontalmente en el centro */
+  gap: 20px; 
+  max-width: 100px; 
+  margin: auto;
 }
 .product-data {
   display: flex;
@@ -73,7 +81,10 @@
   padding-right: 50px;
   margin: -50px;
 }
-
+.compra{
+  color: #ffffff;
+  background-color:rgb(22, 98, 240);
+}
 .targ .delete {
   margin-top: auto;
   margin-right: -7rem;

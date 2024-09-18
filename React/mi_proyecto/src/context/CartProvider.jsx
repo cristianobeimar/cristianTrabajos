@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cart")) ?? []
   );
 
-  //esta funcion hace que agrege productos al carro
+  //esta funcion me permite agregar productos al carrito
   const addToCart = (product) => {
     const existingProdut = cart.find((item) => item.id === product.id);
     // condición ? expr1 : expr2
@@ -25,10 +25,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeFromCart = (product) => {
-    setCart(cart.filter((item) => item.id !== product.id));
+    const actualizarCarrito = cart.filter((item) => item.id !== product.id);
+    localStorage.setItem("cart", JSON.stringify(actualizarCarrito));
+    setCart(actualizarCarrito);
   };
 
   const clearCart = () => {
+    localStorage.removeItem("cart");
     setCart([]);
   };
 
@@ -37,15 +40,19 @@ export const CartProvider = ({ children }) => {
       const existingProduct = prevState.find((item) => item.id === product.id);
       if (existingProduct) {
         if (existingProduct.quantity === 1) {
-          //retira o quita el prodcuro de l carrito si la cantidad es uno
-          return prevState.filter((item) => item.id !== product.id);
+          //  esta funcion me retira o quita el producto del carrito si la cantidad llega a uno
+          const actualizarCarrito = prevState.filter((item) => item.id !== product.id);
+          localStorage.setItem("cart", JSON.stringify(actualizarCarrito));
+          return actualizarCarrito;
         } else {
-          // disminuye la cantida del productos del carrito uno a uno
-          return prevState.map((item) =>
+          // Disminuye la cantidad del producto del carrito uno a uno
+          const actualizarCarrito = prevState.map((item) =>
             item.id === product.id
               ? { ...item, quantity: item.quantity - 1 }
               : item
           );
+          localStorage.setItem("cart", JSON.stringify(actualizarCarrito));
+          return actualizarCarrito;
         }
       }
       return prevState;

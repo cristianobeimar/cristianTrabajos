@@ -12,8 +12,8 @@ utilizando el bucle for*/
 
 let numero1 =[1, 2, 3, 4, 5, 6, 7]
 let suma = 0
-for (let B = 0; B < numero.length; B++){
-    suma += numero[B];
+for (let B = 0; B < numero1.length; B++){
+    suma += numero1[B];
 }
     console.log("la suma de los numeros es " + suma);
 /*Objetivo: Crear un programa que filtre y encuentre datos 

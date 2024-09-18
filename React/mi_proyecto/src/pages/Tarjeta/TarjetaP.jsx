@@ -34,6 +34,7 @@ const Products = ({
   const [login, setlogin] = useState(false);
   const [User, setUser] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     onAuthStateChanged(auth, async (usuario) => {
       if (usuario) {
@@ -46,31 +47,31 @@ const Products = ({
     });
   }, [User]);
 
-  // const handleCompra = () => {
-  //   if (User) {
-
-  //     setMensajeCompra("Compra realizada");
-
-  //     navigate("/");
-  //   } else {
-
-  //     setMensajeCompra("Debe iniciar sesión para comprar");
-  //     setTimeout(() => {
-
-  //       setlogin(true);
-  //     }, 3000);
-  //   }
-
-  // };
   const handleCompra = () => {
-    User
-      ? setMensajeCompra("compra realizada")
-      : setMensajeCompra("debes iniciar sesion para comprar");
-      
-      setTimeout(()=>{
+    if (User) {
+
+      setMensajeCompra("Compra realizada");
+
+      navigate("/");
+    } else {
+
+      setMensajeCompra("Debe iniciar sesión para comprar");
+      setTimeout(() => {
+
         setlogin(true);
       }, 3000);
+    }
+
   };
+  // const handleCompra = () => {
+  //   User
+  //     ? setMensajeCompra("compra realizada")
+  //     : setMensajeCompra("debes iniciar sesion para comprar");
+      
+  //     setTimeout(()=>{
+  //       setlogin(true);
+  //     }, 3000);
+  // };
 
   const iniciarGoogle = async () => {
     try {
@@ -107,9 +108,9 @@ const Products = ({
         </div>
       )}
       <div className={styles.principal}>
-        <div className={styles.mesaje_compra}>
+        {/* <div className={styles.mesaje_compra}>
           <p>{mensajeCompra}</p>
-        </div>
+        </div> */}
         <Navegacion />
         <div className="buscar">
           <BuscadorComponent datos={[]} />

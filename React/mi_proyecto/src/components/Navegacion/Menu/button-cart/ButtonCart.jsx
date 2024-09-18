@@ -28,15 +28,14 @@ const ButtonCart = () => {
         <p className={styles.numero}>{cart.length}</p>
       </button>
       {activo && (
-        <div className={styles.mascara_Carrito}>
+        <div onMouseLeave ={()=>setActivo(false)}  className={styles.mascara_Carrito}>
           {cart.map((item, i) => (
-            <div key={i}>
-
+            <div key={i} >
               <CarritoTarjeta
                 {...item}
                 item={item}
                 cantidad={item.cantidad}
-                // actualizarCarrito={actualizarCarrito}
+                
               />
             </div>
           ))}
