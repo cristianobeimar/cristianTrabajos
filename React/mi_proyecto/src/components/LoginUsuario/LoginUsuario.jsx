@@ -47,18 +47,35 @@ export const LoginUsuario = () => {
   };
 
   // onAuthStateChanged me sirve para realizar Verificación de si hay un usuario autenticado
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUsuario(user);
+  //       console.log("Hay usuario autenticado:", user.email);
+  //     } else {
+  //       setUsuario(null);
+  //       console.log("No hay usuario autenticado");
+  //     }
+  //   });
+  // }, []);
+  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUsuario(user);
         console.log("Hay usuario autenticado:", user.email);
+  
+        // Inicializar carrito vacío si es un nuevo inicio de sesión
+        const existingCart = localStorage.getItem('cart');
+        if (!existingCart) {
+          localStorage.setItem('cart', JSON.stringify([]));
+        }
       } else {
         setUsuario(null);
         console.log("No hay usuario autenticado");
       }
     });
   }, []);
-
   return (
     <>
       <form

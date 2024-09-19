@@ -18,13 +18,31 @@ export default function FormLogin() {
       console.log("error al iniciar secion");
     }
   };
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, async (usuario) => {
+  //     if (usuario) {
+  //       const u = await usuario;
+  //       setUser(u);
+  //       setBtnActivo(true);
+  //       console.log(u);
+  //     } else {
+  //       console.log("No hay usuario");
+  //     }
+  //   });
+  // }, []);
+ 
   useEffect(() => {
-    onAuthStateChanged(auth, async (usuario) => {
+    onAuthStateChanged(auth, (usuario) => {
       if (usuario) {
-        const u = await usuario;
-        setUser(u);
+        setUser(usuario);
         setBtnActivo(true);
-        console.log(u);
+        console.log(usuario);
+        // Verificar si el carrito ya existe en localStorage
+        const existingCart = localStorage.getItem('cart');
+        if (!existingCart) {
+          // Si no hay carrito en localStorage, crear uno vacío
+          localStorage.setItem('cart', JSON.stringify([]));
+        }
       } else {
         console.log("No hay usuario");
       }
@@ -34,6 +52,7 @@ export default function FormLogin() {
   const CerrarSesion = async () => {
     try {
       await signOut(auth);
+      // localStorage.removeItem('cart'); //agrege esta linea para que cada ves que un usuario inicie cession se genere un carri nuevo
       setBtnActivo(false);
       console.log(BtnActivo);
     } catch (error) {

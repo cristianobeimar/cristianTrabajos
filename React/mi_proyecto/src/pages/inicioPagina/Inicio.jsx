@@ -14,7 +14,7 @@ const Inicio = () => {
 
   // Configuración del scroll hace que la imagen camvie cada 6 segundos
   useEffect(() => {
-    primero.current = setInterval(mostrarSiguiente, 6000);
+    primero.current = setInterval(mostrarSiguiente, 7000);
 
     return () => {
       clearInterval(primero.current);

@@ -8,7 +8,7 @@ export const CartProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("cart")) ?? []
   );
 
-  //esta funcion me permite agregar productos al carrito
+  // funcion me permite agregar productos al carrito
   const addToCart = (product) => {
     const existingProdut = cart.find((item) => item.id === product.id);
     // condición ? expr1 : expr2
@@ -29,7 +29,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(actualizarCarrito));
     setCart(actualizarCarrito);
   };
-
+// esta funcion  para poder eliminar los productos guardados en el localStorage 
   const clearCart = () => {
     localStorage.removeItem("cart");
     setCart([]);
@@ -45,7 +45,7 @@ export const CartProvider = ({ children }) => {
           localStorage.setItem("cart", JSON.stringify(actualizarCarrito));
           return actualizarCarrito;
         } else {
-          // Disminuye la cantidad del producto del carrito uno a uno
+          // Disminuye la cantidad
           const actualizarCarrito = prevState.map((item) =>
             item.id === product.id
               ? { ...item, quantity: item.quantity - 1 }
